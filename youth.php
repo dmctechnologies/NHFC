@@ -76,8 +76,5 @@
 </div>
 <!-- End Content -->
 
-<!-- Start Sidebar -->
-<?php include "side-bar.php"; ?>
-
 <!-- Start Footer -->
 <?php include "footer.php"; ?>

@@ -116,7 +116,5 @@
       </div> <!-- Close container -->
     </div> <!-- Close content -->
   </div> <!-- Close main -->
-<!-- Start Sidebar -->
-<?php include "side-bar.php"; ?>
 <!-- Start Footer -->
 <?php include "footer.php"; ?>
