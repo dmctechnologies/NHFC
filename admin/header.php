@@ -59,7 +59,7 @@ if (!isset($_SESSION['SESS_FIRST_NAME'])) {
 		<div class="left-side sticky-left-side">
 			<!--logo and iconic logo start-->
 			<div class="logo">
-				<h1><a href="index.php">NHFC Admin</span></a></h1>
+				<h1><a href="index.php">NHFC Admin</a></h1>
 			</div>
 			<div class="logo-icon text-center">
 				<a href="index.php"><i class="lnr lnr-home"></i></a>
