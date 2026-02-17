@@ -1,53 +1,57 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "newsletter_db"; // Replace with your database name
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+require 'vendor/autoload.php';
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: index.php');
+    exit();
 }
 
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+$name = htmlspecialchars(trim($_POST['name'] ?? ''), ENT_QUOTES, 'UTF-8');
+$country = htmlspecialchars(trim($_POST['country'] ?? ''), ENT_QUOTES, 'UTF-8');
+$email = filter_var(trim($_POST['email'] ?? ''), FILTER_VALIDATE_EMAIL);
 
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Prepare and bind
-        $stmt = $conn->prepare("INSERT INTO subscribers (email) VALUES (?)");
-        $stmt->bind_param("s", $email);
-
-        if ($stmt->execute()) {
-            echo "Thank you for subscribing!";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-
-        $stmt->close();
-    } else {
-        echo "Invalid email address.";
-    }
+if ($name === '' || $country === '' || !$email) {
+    header('Location: index.php?subscribe=invalid');
+    exit();
 }
 
-$conn->close();
-?>
+$mail = new PHPMailer(true);
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscribe</title>
-</head>
-<body>
-    <form method="POST" action="">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <button type="submit">Subscribe</button>
-    </form>
-</body>
-</html>
+try {
+    $smtpHost = getenv('SMTP_HOST') ?: 'mail.newharvestfellowshipchurch.tz';
+    $smtpUser = getenv('SMTP_USER') ?: 'info@newharvestfellowshipchurch.tz';
+    $smtpPass = getenv('SMTP_PASS') ?: 'DS8ywrFb8TGLDYw';
+    $smtpPort = (int) (getenv('SMTP_PORT') ?: 587);
+    $toEmail = getenv('MAIL_TO') ?: 'info@newharvestfellowshipchurch.tz';
+
+    $mail->SMTPDebug = 0;
+    $mail->isSMTP();
+    $mail->Host = $smtpHost;
+    $mail->SMTPAuth = true;
+    $mail->Username = $smtpUser;
+    $mail->Password = $smtpPass;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = $smtpPort;
+
+    $mail->setFrom($smtpUser, 'NHFC Newsletter');
+    $mail->addAddress($toEmail, 'NHFC Newsletter Desk');
+    $mail->addReplyTo($email, $name);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'New newsletter subscription';
+    $mail->Body = "<strong>Name:</strong> {$name}<br>
+    <strong>Country:</strong> {$country}<br>
+    <strong>Email:</strong> {$email}";
+    $mail->AltBody = "Name: {$name}\nCountry: {$country}\nEmail: {$email}";
+
+    $mail->send();
+    header('Location: index.php?subscribe=success');
+    exit();
+} catch (Exception $e) {
+    header('Location: index.php?subscribe=failed');
+    exit();
+}

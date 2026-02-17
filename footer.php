@@ -51,7 +51,7 @@ $instagram_url = nhfc_social_url($footer_settings ? $footer_settings->status : '
       </div>
       <div class="col-md-3 col-sm-6 widget footer-widget">
         <h4 class="footer-widget-title">Newsletter Subscription</h4>
-        <form action="#" method="post">
+        <form action="subscribe.php" method="post">
           <div class="form-group">
             <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
             <div class="spacer-10"></div>

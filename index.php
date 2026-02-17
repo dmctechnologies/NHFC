@@ -98,7 +98,7 @@
                     <div class="row">
                       <div class="col-md-12">
 					  <?php
-				$result = $db->prepare("SELECT * FROM news ORDER BY id DESC Limit 3");
+				$result = $db->prepare("SELECT * FROM news ORDER BY id DESC Limit 1");
 				$result->execute();
 				for($i=0; $row = $result->fetch(); $i++){   
                ?> 

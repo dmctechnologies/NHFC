@@ -3101,16 +3101,51 @@ span.progress-bar-tooltip:after {
 	margin-bottom:20px;
 }
 .statement-faith-card{
-	border:1px solid #ddd;
-	padding:15px;
-	border-radius:5px;
-	background-color:#f9f9f9;
+	border:1px solid #dfe3e8;
+	padding:18px;
+	border-radius:12px;
+	background-color:#ffffff;
+	box-shadow:0 2px 8px rgba(0, 0, 0, 0.05);
 	width:100%;
 	margin-bottom:0;
 }
 .statement-faith-card h4{
 	font-size:18px;
 	font-weight:bold;
+	margin-top:0;
+	margin-bottom:12px;
+	color:#1f2d3d;
+	letter-spacing:.5px;
+}
+.statement-faith-card p{
+	margin:0;
+}
+.team-member{
+	display:flex;
+	align-items:center;
+	gap:16px;
+	margin-bottom:24px;
+}
+.member-image{
+	flex:0 0 96px;
+}
+.member-image img{
+	width:96px;
+	height:96px;
+	border-radius:50%;
+	object-fit:cover;
+	display:block;
+	border:1px solid #e6e6e6;
+	background-color:#f2f2f2;
+}
+.member-details p{
+	margin:0 0 8px;
+}
+.member-details p:last-child{
+	margin-bottom:0;
+}
+.member-details strong{
+	font-size:1.3em;
 }
 @media only screen and (max-width: 767px) {
 	.statement-faith-row{
@@ -3119,5 +3154,16 @@ span.progress-bar-tooltip:after {
 	.statement-faith-item{
 		display:block;
 		margin-bottom:15px;
+	}
+	.team-member{
+		gap:12px;
+		margin-bottom:18px;
+	}
+	.member-image{
+		flex-basis:72px;
+	}
+	.member-image img{
+		width:72px;
+		height:72px;
 	}
 }
