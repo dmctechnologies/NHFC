@@ -4,12 +4,11 @@ include "connect.php";
 ?>
 <!DOCTYPE HTML>
 <html class="no-js">
-
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
 <!-- Basic Page Needs
   ================================================== -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <title>NHFC Tanzania</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -83,7 +82,6 @@ include "connect.php";
                     <li><a href="children.php">Children Ministry</a></li>
                     <li><a href="outreach.php">Outreach Ministry</a></li>
                   </ul>
-                </li>
                 </li>
                  <li><a href="events.php">Events</a>
                   

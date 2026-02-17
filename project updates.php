@@ -113,6 +113,11 @@
             <?php endif; ?>
         </div>
           <!-- Start Sidebar -->
-		  <?php include"side-bar.php"; ?>
+		  <?php include "side-bar.php"; ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- Start Footer -->
   <?php include "footer.php"; ?>

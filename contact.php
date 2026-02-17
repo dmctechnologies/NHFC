@@ -4,11 +4,13 @@
 <!-- Start Nav Backed Header -->
 <div class="nav-backed-header parallax">
   <div class="container">
-    <div class="col-md-12">
-      <ol class="breadcrumb">
-        <li><a href="index.php">Home</a></li>
-        <li class="active">Contact</li>
-      </ol>
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+          <li><a href="index.php">Home</a></li>
+          <li class="active">Contact</li>
+        </ol>
+      </div>
     </div>
   </div>
 </div>
@@ -46,7 +48,7 @@
                   <input type="text" placeholder="First" required="required" name="field_name[value]" id="gkt_form_fe8826db_field_name" />
                 </div>
                 <div class="ghostkit-form-field-name-last">
-                  <input type="text" placeholder="Last" name="field_name[last]" id="gkt_form_fe8826db_field_name" />
+                  <input type="text" placeholder="Last" name="field_name[last]" id="gkt_form_fe8826db_field_name_last" />
                 </div>
               </div>
             </div>
@@ -70,7 +72,7 @@
             </div>
 
             <div class="ghostkit-form-submit-button">
-              <button class="ghostkit-button ghostkit-button-md ghostkit-button-with-outline ghostkit-custom-29R04e wp-element-button">
+              <button type="submit" class="ghostkit-button ghostkit-button-md ghostkit-button-with-outline ghostkit-custom-29R04e wp-element-button">
                 <span class="ghostkit-button-text">Submit</span>
               </button>
             </div>

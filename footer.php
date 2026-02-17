@@ -21,7 +21,7 @@ $instagram_url = nhfc_social_url($footer_settings ? $footer_settings->status : '
     <div class="container">
       <div class="row"> 
         <!-- Start Footer Widgets -->
-        <div class="col-md-4 col-sm-4 widget footer-widget">
+        <div class="col-md-3 col-sm-6 widget footer-widget">
           <h4 class="footer-widget-title">About NHFC Tanzania</h4>
           <img src="images/nhfc.png" alt="Logo" style="width: 150px; height: auto;">
           <p style="text-align: justify;">New Harvest Fellowship Church Tanzania is a vibrant 
@@ -30,7 +30,7 @@ $instagram_url = nhfc_social_url($footer_settings ? $footer_settings->status : '
             communities through various outreach programs and initiatives.</p>	  
 				
 		</div>
-        <div class="col-md-4 col-sm-4 widget footer-widget">
+        <div class="col-md-3 col-sm-6 widget footer-widget">
           <h4 class="footer-widget-title">Quick Links</h4>
           <ul>
             <li><a href="index.php">Home</a></li>
@@ -41,7 +41,7 @@ $instagram_url = nhfc_social_url($footer_settings ? $footer_settings->status : '
           </ul>
         </div>
 		
-        <div class="col-md-4 col-sm-4 widget footer-widget">
+        <div class="col-md-3 col-sm-6 widget footer-widget">
           <h4 class="footer-widget-title">Contact Information</h4>
         <p style="margin: 0;">NEW HARVEST FELLOWSHIP CHURCH TANZANIA</p>
         <p style="margin: 0;">P.O.BOX 540, CHIBE-SHINYANGA</p>
@@ -49,7 +49,7 @@ $instagram_url = nhfc_social_url($footer_settings ? $footer_settings->status : '
         <p style="margin: 0;">Email: <a href="mailto:info@newharvestfellowshipchurch.tz">info@newharvestfellowshipchurch.tz</a></p>
 		
       </div>
-      <div class="col-md-4 col-sm-4 widget footer-widget">
+      <div class="col-md-3 col-sm-6 widget footer-widget">
         <h4 class="footer-widget-title">Newsletter Subscription</h4>
         <form action="#" method="post">
           <div class="form-group">
