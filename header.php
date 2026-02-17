@@ -47,11 +47,11 @@ include "connect.php";
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-8">
               
-            <div class="logo-container" style="display: flex; align-items: center; flex-wrap: nowrap; gap: 15px;">
-              <h1 class="logo" style="margin: 0; padding-right: 0; flex: 0 0 auto;"> 
-              <a href="index.php"><img src="images/nhfc.png" alt="Logo" style="height: 70px; width: auto; display: block;"></a> 
+            <div class="logo-container" style="display: flex; align-items: center;">
+              <h1 class="logo" style="margin: 0; padding-right: 15px;"> 
+              <a href="index.php"><img src="images/nhfc.png" alt="Logo" style="max-height: 70px; display: block;"></a> 
               </h1>
-              <span style="font-size: 18px; font-weight: bold; color: #555; display: inline-block; line-height: 1.1; white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis;">New Harvest Fellowship Church</span>
+              <span style="font-size: 24px; font-weight: bold; color: #555; display: block; line-height: 1.2;">New Harvest Fellowship Church</span>
             </div>
             </div>
           <div class="col-md-8 col-sm-6 col-xs-4">

@@ -3092,3 +3092,32 @@ span.progress-bar-tooltip:after {
   font-size:15px !important;
   padding: 10px;
 }
+.statement-faith-row{
+	display:flex;
+	flex-wrap:wrap;
+}
+.statement-faith-item{
+	display:flex;
+	margin-bottom:20px;
+}
+.statement-faith-card{
+	border:1px solid #ddd;
+	padding:15px;
+	border-radius:5px;
+	background-color:#f9f9f9;
+	width:100%;
+	margin-bottom:0;
+}
+.statement-faith-card h4{
+	font-size:18px;
+	font-weight:bold;
+}
+@media only screen and (max-width: 767px) {
+	.statement-faith-row{
+		display:block;
+	}
+	.statement-faith-item{
+		display:block;
+		margin-bottom:15px;
+	}
+}

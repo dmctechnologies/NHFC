@@ -43,32 +43,44 @@
                 <h3 class="titles">STATEMENT OF FAITH / OUR BELIEF</h3>
               </header>
                 <section class="listing-cont">
-                <div class="row">
-                  <div class="col-md-6">
-                  <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
-                    <h4 style="font-size: 18px; font-weight: bold;">GOD</h4>
-                    <p>We believe in one God, Creator of all things, holy, infinitely perfect, and eternally existing in a loving unity of three equally divine Persons: the Father, the Son and the Holy Spirit. Having limitless knowledge and sovereign power, God has graciously purposed from eternity to redeem a people for Himself and to make all things new for His own glory.</p>
+                <div class="row statement-faith-row">
+                  <div class="col-md-6 col-sm-6 statement-faith-item">
+                    <div class="box statement-faith-card">
+                      <h4>GOD</h4>
+                      <p>We believe in one God, Creator of all things, holy, infinitely perfect, and eternally existing in a loving unity of three equally divine Persons: the Father, the Son and the Holy Spirit. Having limitless knowledge and sovereign power, God has graciously purposed from eternity to redeem a people for Himself and to make all things new for His own glory.</p>
+                    </div>
                   </div>
-                  <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
-                    <h4 style="font-size: 18px; font-weight: bold;">THE BIBLE</h4>
-                    <p>We believe that God has spoken in the Scriptures, both Old and New Testaments, through the words of human authors. As the verbally inspired Word of God, the Bible is without error in the original writings, the complete revelation of His will for salvation, and the ultimate authority by which every realm of human knowledge and endeavor should be judged. Therefore, it is to be believed in all that it teaches, obeyed in all that it requires, and trusted in all that it promises.</p>
+                  <div class="col-md-6 col-sm-6 statement-faith-item">
+                    <div class="box statement-faith-card">
+                      <h4>JESUS CHRIST</h4>
+                      <p>We believe that Jesus, Israel's promised Messiah, was conceived through the Holy Spirit and born of the virgin Mary. He lived a sinless life, was crucified under Pontius Pilate, arose bodily from the dead, ascended into heaven and sits at the right hand of God the Father as our High Priest and Advocate.</p>
+                    </div>
                   </div>
-                  <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
-                    <h4 style="font-size: 18px; font-weight: bold;">HUMAN CONDITION</h4>
-                    <p>We believe that God created Adam and Eve in His image, but they sinned when tempted by Satan. In union with Adam, human beings are sinners by nature and by choice, alienated from God, and under His wrath. Only through God's saving work in Jesus Christ can we be rescued, reconciled and renewed.</p>
+                </div>
+                <div class="row statement-faith-row">
+                  <div class="col-md-6 col-sm-6 statement-faith-item">
+                    <div class="box statement-faith-card">
+                      <h4>THE BIBLE</h4>
+                      <p>We believe that God has spoken in the Scriptures, both Old and New Testaments, through the words of human authors. As the verbally inspired Word of God, the Bible is without error in the original writings, the complete revelation of His will for salvation, and the ultimate authority by which every realm of human knowledge and endeavor should be judged. Therefore, it is to be believed in all that it teaches, obeyed in all that it requires, and trusted in all that it promises.</p>
+                    </div>
                   </div>
-                  </div>
-                  <div class="col-md-6">
-                  <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
-                    <h4 style="font-size: 18px; font-weight: bold;">JESUS CHRIST</h4>
-                    <p>We believe that Jesus, Israel's promised Messiah, was conceived through the Holy Spirit and born of the virgin Mary. He lived a sinless life, was crucified under Pontius Pilate, arose bodily from the dead, ascended into heaven and sits at the right hand of God the Father as our High Priest and Advocate.</p>
-                  </div>
-                  <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
-                    <h4 style="font-size: 18px; font-weight: bold;">THE WORK OF CHRIST</h4>
+                  <div class="col-md-6 col-sm-6 statement-faith-item">
+                    <div class="box statement-faith-card">
+                      <h4>THE WORK OF CHRIST</h4>
                       <p>We believe that Jesus Christ, as our representative and substitute, shed His blood on the cross as the perfect, all-sufficient sacrifice for our sins. His atoning death and victorious resurrection constitute the only ground for salvation.</p>
                     </div>
-                    <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
-                    <h4 style="font-size: 18px; font-weight: bold;">THE HOLY SPIRIT</h4>
+                  </div>
+                </div>
+                <div class="row statement-faith-row">
+                  <div class="col-md-6 col-sm-6 statement-faith-item">
+                    <div class="box statement-faith-card">
+                      <h4>HUMAN CONDITION</h4>
+                      <p>We believe that God created Adam and Eve in His image, but they sinned when tempted by Satan. In union with Adam, human beings are sinners by nature and by choice, alienated from God, and under His wrath. Only through God's saving work in Jesus Christ can we be rescued, reconciled and renewed.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 statement-faith-item">
+                    <div class="box statement-faith-card">
+                      <h4>THE HOLY SPIRIT</h4>
                       <p>We believe that the Holy Spirit, in all that He does, glorifies the Lord Jesus Christ. He convicts the world of its guilt. He regenerates sinners, and in Him they are baptized into union with Christ and adopted as heirs in the family of God. He also indwells, illuminates, guides, equips and empowers believers for Christ-like living and service.</p>
                     </div>
                   </div>
