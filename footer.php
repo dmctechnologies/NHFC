@@ -1,4 +1,22 @@
+<?php
+if (!function_exists('nhfc_social_url')) {
+  function nhfc_social_url($value, $prefix) {
+    $value = trim((string) $value);
+    if ($value === '') {
+      return '#';
+    }
+    if (preg_match('/^https?:\/\//i', $value)) {
+      return $value;
+    }
+    return $prefix . ltrim($value, '@/');
+  }
+}
 
+$footer_settings = ORM::for_table('settings')->find_one(1);
+$facebook_url = nhfc_social_url($footer_settings ? $footer_settings->facebook : '', 'https://www.facebook.com/');
+$twitter_url = nhfc_social_url($footer_settings ? $footer_settings->twitter : '', 'https://twitter.com/');
+$instagram_url = nhfc_social_url($footer_settings ? $footer_settings->status : '', 'https://instagram.com/');
+?>
   <footer class="site-footer">
     <div class="container">
       <div class="row"> 
@@ -18,7 +36,7 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="about.php">About Us</a></li>
             <li><a href="events.php">All Events</a></li>
-            <li><a href="projects.php">Projects</a></li>
+            <li><a href="project_updates.php">Projects</a></li>
             <li><a href="contact.php">Contact Us</a></li>
           </ul>
         </div>
@@ -52,7 +70,11 @@
           <p>&copy; 2025 NHFC Tanzania. All Rights Reserved</p>
         </div>
         <div class="copyrights-col-right col-md-6 col-sm-6">
-          <div class="social-icons"> <a href="https://www.facebook.com/<?php echo $row['facebook']; ?>" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com/<?php echo $row['twitter']; ?>" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://instagram.com/<?php echo $row['status']; ?>" target="_blank"><i class="fa fa-instagram"></i></a></div>
+          <div class="social-icons">
+            <a href="<?php echo htmlspecialchars($facebook_url, ENT_QUOTES, 'UTF-8'); ?>" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="<?php echo htmlspecialchars($twitter_url, ENT_QUOTES, 'UTF-8'); ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a href="<?php echo htmlspecialchars($instagram_url, ENT_QUOTES, 'UTF-8'); ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+          </div>
         </div>
       </div>
     </div>

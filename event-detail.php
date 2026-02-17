@@ -2,7 +2,7 @@
   <!-- End Site Header --> 
   <!-- Start Nav Backed Header -->
   <?php
-               $id=$_GET['id'];
+               $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 	$result = $db->prepare("SELECT * FROM events where id= :post_id");
 	$result->bindParam(':post_id', $id);
 	$result->execute();
@@ -71,7 +71,7 @@
 <div class="addthis_sharing_toolbox"></div>
 			  </div>
 				</div>
-				  <div class="fb-comments" data-href="read.php?id=<?php echo $row['id'];?>/docs/plugins/comments#configurator" data-width="100%" data-numposts="5"></div>
+				  <div class="fb-comments" data-href="event-detail.php?id=<?php echo $row['id'];?>" data-width="100%" data-numposts="5"></div>
            </article>
           </div>
 		  <?php } ?>

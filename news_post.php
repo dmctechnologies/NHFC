@@ -2,7 +2,7 @@
   <!-- End Site Header --> 
   <!-- Start Nav Backed Header -->
    <?php
-               $id=$_GET['id'];
+               $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 	$result = $db->prepare("SELECT * FROM news where id= :post_id");
 	$result->bindParam(':post_id', $id);
 	$result->execute();
@@ -14,7 +14,7 @@
         <div class="col-md-12">
           <ol class="breadcrumb">
             <li><a href="index.php">Home</a></li>
-            <li><a href="news-update.php">News Update</a></li>
+            <li><a href="news-updates.php">News Update</a></li>
             <li class="active"><?php echo $row['news_title']; ?></li>
           </ol>
         </div>
@@ -49,7 +49,7 @@
 			   <h5>Share this post:</h5>                                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <div class="addthis_sharing_toolbox"></div>
 			  </div>
-			   <div class="fb-comments" data-href="read.php?id=<?php echo $row['id'];?>/docs/plugins/comments#configurator" data-width="100%" data-numposts="5"></div>
+               <div class="fb-comments" data-href="news_post.php?id=<?php echo $row['id'];?>" data-width="100%" data-numposts="5"></div>
             </article>
             </div>
 		  <?php } ?>

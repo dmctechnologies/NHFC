@@ -26,32 +26,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     mkdir($upload_dir, 0777, true);
                 }
 
-                $file_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-                $new_filename = uniqid() . '.' . $file_extension;
+                $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                $allowed_mime_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+                $file_extension = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+
+                if (!in_array($file_extension, $allowed_extensions, true)) {
+                    $message = "<div class='error'>Invalid image format. Please upload JPG, PNG, GIF or WEBP.</div>";
+                }
+
+                $tmp_name = $_FILES['image']['tmp_name'];
+                $mime_type = function_exists('mime_content_type') ? mime_content_type($tmp_name) : '';
+                if ($message === '' && $mime_type !== '' && !in_array($mime_type, $allowed_mime_types, true)) {
+                    $message = "<div class='error'>Invalid file type detected.</div>";
+                }
+
+                $new_filename = uniqid('', true) . '.' . $file_extension;
                 $upload_path = $upload_dir . $new_filename;
 
-                if (move_uploaded_file($_FILES['image']['tmp_name'], $upload_path)) {
+                if ($message === '' && move_uploaded_file($_FILES['image']['tmp_name'], $upload_path)) {
                     $image_url = $upload_path;
+                } elseif ($message === '') {
+                    $message = "<div class='error'>Could not upload image.</div>";
                 }
             }
 
             // Insert data (without PayPal link)
-            $stmt = $conn->prepare("INSERT INTO kids (name, age, image_url, story, need, amount_needed) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sisssd",
-                $_POST['name'],
-                $_POST['age'],
-                $image_url,
-                $_POST['story'],
-                $_POST['need'],
-                $_POST['amount_needed']
-            );
+            if ($message === '') {
+                $stmt = $conn->prepare("INSERT INTO kids (name, age, image_url, story, need, amount_needed) VALUES (?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("sisssd",
+                    $_POST['name'],
+                    $_POST['age'],
+                    $image_url,
+                    $_POST['story'],
+                    $_POST['need'],
+                    $_POST['amount_needed']
+                );
 
-            if ($stmt->execute()) {
-                $message = "<div class='success'>Child profile added successfully!</div>";
-            } else {
-                $message = "<div class='error'>Error adding profile.</div>";
+                if ($stmt->execute()) {
+                    $message = "<div class='success'>Child profile added successfully!</div>";
+                } else {
+                    $message = "<div class='error'>Error adding profile.</div>";
+                }
+                $stmt->close();
             }
-            $stmt->close();
         }
 
         if ($_POST['action'] === 'delete' && isset($_POST['id'])) {

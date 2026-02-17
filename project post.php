@@ -18,7 +18,7 @@ if ($result->rowCount() > 0) {
                 <div class="col-md-12">
                     <ol class="breadcrumb">
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="project updates.php">Project Updates</a></li>
+                        <li><a href="project_updates.php">Project Updates</a></li>
                         <li class="active"><?php echo $row['project_title']; ?></li>
                     </ol>
                 </div>
@@ -51,13 +51,13 @@ if ($result->rowCount() > 0) {
 <div><?php echo $row['project_detail']; ?></div>
 <div class="post-meta"> 
     <!--<h5>Share this post:</h5>
-    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('http://yourwebsite.com/project post.php?id=' . $id); ?>" target="_blank">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('http://yourwebsite.com/project_post.php?id=' . $id); ?>" target="_blank">
         <img src="images/facebook.png" alt="Share on Facebook" style="width:24px;height:24px;">
     </a>
-    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('http://yourwebsite.com/project post.php?id=' . $id); ?>" target="_blank">
+    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('http://yourwebsite.com/project_post.php?id=' . $id); ?>" target="_blank">
         <img src="images/twitter.png" alt="Share on X (Twitter)" style="width:24px;height:24px;">
     </a>
-    <a href="mailto:?subject=Check out this project&body=Check out this project: <?php echo urlencode('http://yourwebsite.com/project post.php?id=' . $id); ?>" target="_blank">
+    <a href="mailto:?subject=Check out this project&body=Check out this project: <?php echo urlencode('http://yourwebsite.com/project_post.php?id=' . $id); ?>" target="_blank">
         <img src="images/gmail.jpeg" alt="Share via Email" style="width:24px;height:24px;">
     </a>
 </div>

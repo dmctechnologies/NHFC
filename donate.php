@@ -52,7 +52,7 @@
         <h1>Projects</h1>
       </div>  
       <div class="col-md-2 col-sm-2 col-xs-4">
-        <a href="project updates.php" class="pull-right btn btn-primary">All Projects</a>
+        <a href="project_updates.php" class="pull-right btn btn-primary">All Projects</a>
       </div>
     </div>
   </div>

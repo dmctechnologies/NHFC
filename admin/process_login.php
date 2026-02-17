@@ -1,8 +1,8 @@
-<?php 
+<?php
 /**................................................................
  * @package eblog v 1.0
- * @author Faith Awolu 
- * Hillsofts Technology Ltd.            
+ * @author Faith Awolu
+ * Hillsofts Technology Ltd.
  * (hillsofts@gmail.com)
  * ................................................................
  */
@@ -10,63 +10,59 @@
 include '../connect.php';
 session_start();
 
-function clean($str) {
-	global $conn;
-		$str = @trim($str);
-		// if(get_magic_quotes_gpc()) {
-		// 	$str = stripslashes($str);
-		// }
-		return mysqli_real_escape_string($conn,$str);
-	}
-	
-	//Sanitize the POST values
-	$login = clean($_POST['username']);
-	$password = clean($_POST['password']);
-	
-	//Input Validations
-	if($login == '') {
-		$errmsg_arr[] = 'Username missing';
-		$errflag = true;
-	}
-	if($password == '') {
-		$errmsg_arr[] = 'Password missing';
-		$errflag = true;
-	}
-	
-	//If there are input validations, redirect back to the login form
-	
-	
-	//Create query
-	$qry="SELECT * FROM table_admin WHERE username='$login' AND password='$password'";
-	$result=mysqli_query($conn,$qry);
-	
-	//Check whether the query was successful or not
-	if($result) {
-		if(mysqli_num_rows($result) > 0) {
-			//Login Successful
-			session_regenerate_id();
-			$member = mysqli_fetch_assoc($result);
-			$_SESSION['SESS_MEMBER_ID'] = $member['id'];
-			$_SESSION['SESS_FIRST_NAME'] = $member['name'];
-			$_SESSION['SESS_LAST_NAME'] = $member['email'];
-			$_SESSION['SESS_PRO_PIC'] = $member['file'];
-			session_write_close();
-			header("location: index.php");
-			exit();
-		}else {
-			
-  echo '<script language = "javascript">';
-  // echo "window.location.href='login.php'"; 
-  echo "alert('Something went wrong, Enter correct details');window.location.href='sign-in.php'";
-   echo '</script>';
-    exit;
-   // echo "<script language = 'javascript'> alert('Wrong Details');'</script>";
-                       
-                       
-                    }
-	}else {
-		die("Query failed");
-	}
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("location: sign-in.php");
+    exit();
+}
+
+$login = trim($_POST['username'] ?? '');
+$password = (string) ($_POST['password'] ?? '');
+
+if ($login === '' || $password === '') {
+    echo '<script language="javascript">';
+    echo "alert('Username and password are required.');window.location.href='sign-in.php'";
+    echo '</script>';
+    exit();
+}
+
+$stmt = $db->prepare("SELECT id, name, email, file, password FROM table_admin WHERE username = :username LIMIT 1");
+$stmt->execute(array(':username' => $login));
+$member = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$authenticated = false;
+if ($member) {
+    $stored_password = (string) $member['password'];
+
+    // Backward compatibility: support both legacy plain-text and password_hash values.
+    if (password_verify($password, $stored_password) || hash_equals($stored_password, $password)) {
+        $authenticated = true;
+    }
+}
+
+if ($authenticated) {
+    session_regenerate_id(true);
+    $_SESSION['SESS_MEMBER_ID'] = $member['id'];
+    $_SESSION['SESS_FIRST_NAME'] = $member['name'];
+    $_SESSION['SESS_LAST_NAME'] = $member['email'];
+    $_SESSION['SESS_PRO_PIC'] = $member['file'];
+
+    // Upgrade legacy plain-text passwords to secure hashes on successful login.
+    $password_info = password_get_info($member['password']);
+    if ($password_info['algo'] === 0) {
+        $new_hash = password_hash($password, PASSWORD_DEFAULT);
+        $update = $db->prepare("UPDATE table_admin SET password = :password WHERE id = :id");
+        $update->execute(array(':password' => $new_hash, ':id' => $member['id']));
+    }
+
+    session_write_close();
+    header("location: index.php");
+    exit();
+}
+
+echo '<script language="javascript">';
+echo "alert('Something went wrong, enter correct details.');window.location.href='sign-in.php'";
+echo '</script>';
+exit();
 ?>
 
 

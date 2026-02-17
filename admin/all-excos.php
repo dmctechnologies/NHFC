@@ -2,12 +2,12 @@
 	<!-- //header-ends -->
 			<div id="page-wrapper">
 				<div class="graphs">
-					<h3 class="blank1">All News</h3>
+					<h3 class="blank1">All Excos</h3>
 					 <div class="xs tabls">
 					 <div class="panel-body1">
 					 <?php if(get("success")):?>
                                             <div>
-                                               <?=App::message("success", "Successfully deleted an Admin!")?>
+                                               <?=App::message("success", "Successfully deleted an Exco record!")?>
                                             </div>
                                             <?php endif;?>
 					   <table class="table">
@@ -15,7 +15,7 @@
 							<tr>
 							  <th>#</th>
 							  <th>Name</th>
-							  <th>Username</th>
+							  <th>Office</th>
 							  <th>Email</th>
 							  <th>Action</th>
 							</tr>
@@ -98,7 +98,7 @@
 							  <td><?php echo $row['office']; ?></td>
 							  <td><?php echo $row['email']; ?></td>
 							  <td>
-							    <a href="delete-admin.php?id=<?=$row['id'] ?>" class="fa fa-eraser btn btn-xs btn-success warning_4 delbtn" >Delete</a>
+							    <a href="delete-exco.php?id=<?=$row['id'] ?>" class="fa fa-eraser btn btn-xs btn-success warning_4 delbtn" >Delete</a>
                                
 							  </td>
 							</tr>

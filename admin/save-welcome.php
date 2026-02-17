@@ -16,7 +16,6 @@ $query = ORM::for_table('welcome')->find_one(1);
 // The following two forms are equivalent
 //$query = $body->get('body');
 $query ->body = $body;
-$query ->save();
 if($query->save()){
       header("location:add-welcome.php?success=true");
         }else{

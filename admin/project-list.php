@@ -74,7 +74,7 @@
                         ?>
                             <tr>
                                 <th scope="row"><?php echo $i; ?></th>
-                                <td><?php echo isset($row['project_name']) ? $row['project_name'] : 'N/A'; ?></td>
+                                <td><?php echo isset($row['project_title']) ? $row['project_title'] : 'N/A'; ?></td>
                                 
                                 <td>
                                     <a href="../project_post.php?id=<?= $row['id'] ?>" target="_blank" class="fa fa-eye-slash btn btn-xs btn-primary">View</a>

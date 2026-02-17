@@ -2,12 +2,17 @@
 include '../connect.php';
 
 // Validate and sanitize form inputs
-$title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
-$date = filter_input(INPUT_POST, 'date', FILTER_SANITIZE_STRING);
-$time = filter_input(INPUT_POST, 'time', FILTER_SANITIZE_STRING);
-$venue = filter_input(INPUT_POST, 'venue', FILTER_SANITIZE_STRING);
-$phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
-$detail = filter_input(INPUT_POST, 'detail', FILTER_SANITIZE_STRING);
+$title = trim($_POST['title'] ?? '');
+$date = trim($_POST['date'] ?? '');
+$time = trim($_POST['time'] ?? '');
+$venue = trim($_POST['venue'] ?? '');
+$phone = trim($_POST['phone'] ?? '');
+$detail = trim($_POST['detail'] ?? '');
+
+if ($title === '' || $date === '' || $time === '' || $venue === '' || $detail === '') {
+    header("Location: add-event.php?failed=true");
+    exit();
+}
 
 // This code will save file into the database
 $query = ORM::for_table('events')->create();
@@ -21,6 +26,8 @@ $query->save();
 
 if ($query) {
     header("Location: add-event.php?success=true");
+    exit();
 } else {
     header("Location: add-event.php?failed=true");
+    exit();
 }

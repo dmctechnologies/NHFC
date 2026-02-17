@@ -27,7 +27,13 @@
         <div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
           <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
             <p><strong>We would love to hear from you! Please fill out the form below and we will get back to you as soon as possible.</strong></p>
-           
+            <?php if (get('mail') === 'success'): ?>
+              <div class="alert alert-success">Message sent successfully. We will contact you soon.</div>
+            <?php elseif (get('mail') === 'failed'): ?>
+              <div class="alert alert-danger">Message could not be sent right now. Please try again later.</div>
+            <?php elseif (get('mail') === 'invalid'): ?>
+              <div class="alert alert-warning">Please fill all required fields with valid details.</div>
+            <?php endif; ?>
           </div>
         </div>
         <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
