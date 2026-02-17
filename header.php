@@ -47,18 +47,18 @@ include "connect.php";
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-8">
               
-            <div class="logo-container" style="display: flex; align-items: center;">
-              <h1 class="logo" style="margin: 0; padding-right: 15px;"> 
-              <a href="index.php"><img src="images/nhfc.png" alt="Logo" style="max-height: 70px; display: block;"></a> 
+            <div class="logo-container" style="display: flex; align-items: center; flex-wrap: nowrap; gap: 15px;">
+              <h1 class="logo" style="margin: 0; padding-right: 0; flex: 0 0 auto;"> 
+              <a href="index.php"><img src="images/nhfc.png" alt="Logo" style="height: 70px; width: auto; display: block;"></a> 
               </h1>
-              <span style="font-size: 24px; font-weight: bold; color: #555; display: block; line-height: 1.2;">New Harvest Fellowship Church</span>
+              <span style="font-size: 18px; font-weight: bold; color: #555; display: inline-block; line-height: 1.1; white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis;">New Harvest Fellowship Church</span>
             </div>
             </div>
           <div class="col-md-8 col-sm-6 col-xs-4">
             <ul class="top-navigation ">
               <li><a href="donate.php">Donate Now</a></li>
             </ul>
-            <a href="#" class="visible-sm visible-xs menu-toggle"><i class="fa fa-bars"></i></a> </div>
+            <a href="javascript:void(0);" class="visible-sm visible-xs menu-toggle" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i></a> </div>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@ include "connect.php";
                     <li><a href="our-excos.php">Leadership Team</a></li>
                   </ul>
                 </li>
-                <li><a href="#">Ministries</a>
+                <li><a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Ministries</a>
                   <ul class="dropdown">
                     <li><a href="youth.php">Youth Ministry</a></li>
                     <li><a href="women.php">Women Ministry</a></li>

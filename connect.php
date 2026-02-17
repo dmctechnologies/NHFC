@@ -24,16 +24,21 @@ mysqli_select_db($conn, $db_database);
 
 class App {
     public static function message($type, $message, $code = '') {
+        $code_html = '';
+        if (trim((string) $code) !== '') {
+            $code_html = ' <span class="alert-link">' . htmlspecialchars((string) $code, ENT_QUOTES, 'UTF-8') . '</span>.';
+        }
+
         if ($type === 'error') {
             return '<div class="alert alert-danger alert-dismissable">
                                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
-                               ' . $message . ' <a class="alert-link" href="#">' . $code . '</a>.
+                               ' . $message . $code_html . '
                             </div>';
         }
 
         return '<div class="alert alert-success alert-dismissable">
                                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">&times;</button>
-                               ' . $message . ' <a class="alert-link" href="#">' . $code . '</a>.
+                               ' . $message . $code_html . '
                             </div>';
     }
 }
@@ -41,4 +46,3 @@ class App {
 function get($val) {
     return $_GET[$val] ?? null;
 }
-

@@ -43,10 +43,10 @@
               <h2 class="post-title"><?php echo $row['news_title']; ?></h2>
             </header>
             <article class="post-content"> <span class="post-meta meta-data"><span><i class="fa fa-calendar"></i> Posted on <?php echo $row['date']; ?></span> <span></i> </span></span>
-              <div class="featured-image"> <img src="uploads/<?php echo $row['file'];?>" alt=""> </div>
+              <div class="featured-image"> <img src="uploads/<?php echo $row['file'];?>" alt="<?php echo htmlspecialchars($row['news_title'], ENT_QUOTES, 'UTF-8'); ?>"> </div>
 <div><?php echo $row['news_detail']; ?></div>
               <div class="post-meta"> 
-			   <h5>Share this post:</h5>                                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+			   <h3>Share this post:</h3>                                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <div class="addthis_sharing_toolbox"></div>
 			  </div>
                <div class="fb-comments" data-href="news_post.php?id=<?php echo $row['id'];?>" data-width="100%" data-numposts="5"></div>

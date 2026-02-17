@@ -89,7 +89,7 @@
 	 ?>
                                            
 			<li class="col-md-3 col-sm-3 grid-item post format-image">
-              <div class="grid-item-inner"> <a href="uploads/<?php echo $row['file'];?>" data-rel="prettyPhoto" class="media-box"> <img src="uploads/<?php echo $row['file'];?>" alt=""> </a> </div>
+              <div class="grid-item-inner"> <a href="uploads/<?php echo $row['file'];?>" data-rel="prettyPhoto" class="media-box"> <img src="uploads/<?php echo $row['file'];?>" alt="<?php echo htmlspecialchars($row['caption'], ENT_QUOTES, 'UTF-8'); ?>"> </a> </div>
             </li>
             <?php endforeach;?>	 
                                                     

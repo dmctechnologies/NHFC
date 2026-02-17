@@ -11,9 +11,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+        <div class="modal-body">
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://youtu.be/dIbijhPkISo" allow="autoplay; encrypted-media"></iframe>
+            <iframe class="embed-responsive-item" title="NHFC Project Intro Video" src="https://youtu.be/dIbijhPkISo" allow="autoplay; encrypted-media"></iframe>
         </div>
       </div>
     </div>
@@ -70,17 +70,17 @@
           <article class="post-content cause-item">
             <span class="post-meta meta-data">
               <span><i class="fa fa-calendar"></i> 28th April, 2025</span>
-              <span><i class="fa fa-archive"></i> <a href="#">NHFC Tanzania</a>, <a href="#">Chibe-Shinyanga</a></span>
+              <span><i class="fa fa-archive"></i> <a href="about.php">NHFC Tanzania</a>, <a href="contact.php">Chibe-Shinyanga</a></span>
             </span>
             <div class="spacer-20"></div>
             <div class="row">
               <div class="col-md-7">
-                <img src="images/b.jpg" class="img-responsive">
+                <img src="images/b.jpg" class="img-responsive" alt="NHFC church building project">
               </div>
               <div class="col-md-5">
                 <ul class="list-group">
                   <li class="list-group-item">
-                    <h4>Progress</h4>
+                    <h3>Progress</h3>
                     <div class="progress">
                       <div class="progress-bar progress-bar-success" id="progress-bar-church" style="width: 0%;" data-appear-animation-delay="200"></div>
                     </div>
@@ -137,7 +137,7 @@
             <p>
             Currently, we gather for worship, discipleship, and community outreach under temporary structures that are vulnerable to weather conditions and offer limited space for the growing number of worshipers—now over 200 believers and counting.
             </p>
-            <h4>Why a Church Building Matters</h4>
+            <h3>Why a Church Building Matters</h3>
             <p>
             Having a permanent church structure is not just about shelter. It’s about establishing a house of hope, a center for discipleship, and a safe space where lives are transformed through the Gospel of Jesus Christ. A church building will serve as:
             </p>
@@ -147,7 +147,7 @@
               <li>A meeting space for women’s fellowships, community support groups, and outreach programs</li>
               <li>A reliable gathering place during the rainy season and harsh weather</li>
             </ul>
-            <h4>Our Goal: $40,000</h4>
+            <h3>Our Goal: $40,000</h3>
             <p>
             We are prayerfully seeking a one-time donation of $40,000 to help us construct a modest yet durable church building that will serve our congregation and the wider community for generations to come.
             </p>
@@ -158,7 +158,7 @@
               <li>Installing doors, windows, and flooring</li>
               <li>Basic furnishings such as benches and a pulpit</li>
             </ul>
-            <h4>Be Part of What God is Doing</h4>
+            <h3>Be Part of What God is Doing</h3>
             <p>
             We invite you to partner with us in this step of faith. Whether you are an individual, a church, or a missions organization, your one-time gift will help us create a lasting spiritual foundation in Chibe.
             </p>
@@ -173,7 +173,7 @@
   </div>
 </div>
 <div class="main" role="main">
-  <div id="content" class="content full">
+  <div id="content-farvision" class="content full">
     <div class="container">
       <div class="row">
         <div class="col-md-9">
@@ -183,23 +183,23 @@
           <article class="post-content cause-item">
             <span class="post-meta meta-data">
               <span><i class="fa fa-calendar"></i> 28th April, 2025</span>
-              <span><i class="fa fa-archive"></i> <a href="#">NHFC Tanzania</a>, <a href="#">Chibe-Shinyanga</a></span>
+              <span><i class="fa fa-archive"></i> <a href="about.php">NHFC Tanzania</a>, <a href="contact.php">Chibe-Shinyanga</a></span>
             </span>
             <div class="spacer-20"></div>
             <div class="row">
               <div class="col-md-7">
-                <img src="images/j.jpg" class="img-responsive">
+                <img src="images/j.jpg" class="img-responsive" alt="Far Vision school expansion project">
               </div>
               <div class="col-md-5">
                 <ul class="list-group">
                   <li class="list-group-item">
-                    <h4>Progress</h4>
+                    <h3>Progress</h3>
                     <div class="progress">
                       <div class="progress-bar progress-bar-success" id="progress-bar" style="width: 0%;" data-appear-animation-delay="200"></div>
                     </div>
                   </li>
-                  <li class="list-group-item"><span class="badge" id="amount-needed">$200,000</span> Amount Needed</li>
-                  <li class="list-group-item"><span class="badge" id="amount-collected">$0</span> Collected</li>
+                  <li class="list-group-item"><span class="badge" id="amount-needed-farvision">$200,000</span> Amount Needed</li>
+                  <li class="list-group-item"><span class="badge" id="amount-collected-farvision">$0</span> Collected</li>
                   <li class="list-group-item"><span class="badge">365</span> Days left to achieve target</li>
                 </ul>
                 <div id="paypal-container-9RFE2X78Q93FJ"></div>
@@ -214,7 +214,7 @@
                 document.addEventListener('DOMContentLoaded', function () {
                   const donationSelect = document.querySelector('select[name="donation amount"]');
                   const customAmountInput = document.querySelector('input[name="Custom Donation Amount"]');
-                  const amountCollected = document.querySelector('#amount-collected');
+                  const amountCollected = document.querySelector('#amount-collected-farvision');
                   const progressBar = document.querySelector('#progress-bar');
                   const totalAmountNeeded = 200000; // Total amount needed in dollars
 
@@ -250,7 +250,7 @@
             In a region where poverty, HIV/AIDS, domestic violence, and illiteracy have devastated families, many young children are left without care or access to early learning opportunities. These children often face neglect, hunger, and a future without hope. Far Vision School was birthed out of a deep burden to offer a new path—one rooted in Christ’s love, educational opportunity, and holistic care.
             </p>
 
-            <h4>What We Do</h4>
+            <h3>What We Do</h3>
             <p>At Far Vision School, we currently serve over 110 children by offering:</p>
             <ul>
               <li>Free early childhood education focused on foundational literacy, numeracy, social skills, and spiritual formation.</li>
@@ -259,7 +259,7 @@
               <li>A Christ-centered approach that emphasizes love, discipline, and purpose.</li>
             </ul>
 
-            <h4>Our Areas of Need</h4>
+            <h3>Our Areas of Need</h3>
             <p>As we continue to grow and serve more children, we face several pressing needs that require the generosity and partnership of caring individuals and organizations:</p>
             <ol>
               <li><strong>School Supplies</strong>
@@ -299,7 +299,7 @@
               </li>
             </ol>
 
-            <h4>Get Involved</h4>
+            <h3>Get Involved</h3>
             <p>
             We invite you to partner with us in this vital work. Whether through a one-time donation or ongoing sponsorship, your support can make a lasting impact in the lives of children who would otherwise be forgotten. With your help, we can continue to bring hope, education, and transformation to the next generation in Chibe.
             </p>

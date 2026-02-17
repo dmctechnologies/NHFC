@@ -32,7 +32,7 @@
 											
 												
 												<label>Programmes : </label>
-												<textarea rows="3" name='body' class="form-control1 control2"><?php echo $row['body']; ?></textarea>
+												<textarea rows="3" id="body" name='body' class="form-control1 control2"><?php echo $row['body']; ?></textarea>
 												 <script>
                 CKEDITOR.replace( 'body' );
             </script>

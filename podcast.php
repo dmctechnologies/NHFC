@@ -96,25 +96,25 @@
             <div class="podcast-item">
                 <img src="https://via.placeholder.com/300x200" alt="Podcast Episode 1">
                 <div class="podcast-content">
-                    <h3>Episode 1: The Journey Begins</h3>
+                    <h2>Episode 1: The Journey Begins</h2>
                     <p>Join us as we kick off our podcast series with an inspiring story of resilience and growth.</p>
-                    <a href="#">Listen Now</a>
+                    <a href="javascript:void(0);" aria-disabled="true">Listen Now</a>
                 </div>
             </div>
             <div class="podcast-item">
                 <img src="https://via.placeholder.com/300x200" alt="Podcast Episode 2">
                 <div class="podcast-content">
-                    <h3>Episode 2: Overcoming Challenges</h3>
+                    <h2>Episode 2: Overcoming Challenges</h2>
                     <p>Discover how to tackle life's challenges with courage and determination in this episode.</p>
-                    <a href="#">Listen Now</a>
+                    <a href="javascript:void(0);" aria-disabled="true">Listen Now</a>
                 </div>
             </div>
             <div class="podcast-item">
                 <img src="https://via.placeholder.com/300x200" alt="Podcast Episode 3">
                 <div class="podcast-content">
-                    <h3>Episode 3: Building Stronger Communities</h3>
+                    <h2>Episode 3: Building Stronger Communities</h2>
                     <p>Explore the power of community and how we can make a difference together.</p>
-                    <a href="#">Listen Now</a>
+                    <a href="javascript:void(0);" aria-disabled="true">Listen Now</a>
                 </div>
             </div>
         </div>

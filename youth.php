@@ -44,18 +44,17 @@
         <div class="col-md-9">
         <header class="single-post-header clearfix">
             <div class="post-header-content">
-              <h2></h2>
-              <p class="post-meta">By <a href="#">New Harvest Fellowship Church</a> | <span class="post-date">2025</span></p>
+              <p class="post-meta">By <a href="about.php">New Harvest Fellowship Church</a> | <span class="post-date">2025</span></p>
             </div>
           </header>
           <div class="post-content"></div>
             <p>Welcome to the Youth Ministry of New Harvest Fellowship Church! We are excited to share our mission and activities with you. Our ministry is designed to empower and equip young people to grow in their faith, develop strong character, and become leaders in their communities.</p>
             <p>The Youth Ministry at New Harvest Fellowship Church is a vibrant and welcoming community dedicated to nurturing the spiritual growth, moral purity, and leadership potential of young people.</p>
             <p>Meeting every Monday from 4:00 PM to 6:30 PM, the ministry creates a dynamic environment for worship, Bible study, mentorship, and joyful fellowship.</p>
-            <h4>Purpose & Vision</h4>
+            <h2>Purpose & Vision</h2>
             <p>This ministry exists to raise up a generation of young people who are strong in faith, equipped with God’s Word, and empowered to impact their families, churches, and communities for Christ.</p>
             <p>Under the leadership of Pastor Jacob Bonny, the Youth Ministry plays a crucial role in the mission of the church by instilling biblical values and encouraging young members to live out their faith in practical, powerful ways.</p>
-            <h4>Core Activities</h4>
+            <h2>Core Activities</h2>
             <p>Each Monday session is highly interactive and relevant, focusing on:</p>
             <ul>
               <li><strong>Worship & Bible Study:</strong> Engaging in meaningful worship and studying God’s Word.</li>

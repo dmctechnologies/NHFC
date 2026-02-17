@@ -44,8 +44,7 @@
         <div class="col-md-9">
         <header class="single-post-header clearfix">
             <div class="post-header-content">
-              <h2></h2>
-              <p class="post-meta">By <a href="#">New Harvest Fellowship Church</a> | <span class="post-date">2025</span></p>
+              <p class="post-meta">By <a href="about.php">New Harvest Fellowship Church</a> | <span class="post-date">2025</span></p>
             </div>
           </header>
           <div class="post-content">
@@ -54,13 +53,13 @@
               strengthening their families, and impacting their community. Meeting every 
               Tuesday from 4:00 PM to 6:30 PM, this ministry provides a safe and nurturing space
               for women of all ages to connect, encourage one another, and grow in the Word of God.</p>
-            <h3>Purpose & Vision</h3>
+            <h2>Purpose & Vision</h2>
             <p>Rooted in Titus 2:3-5, the Women’s Ministry seeks to raise women who are spiritually strong, 
               emotionally healed, and practically equipped for every good work. Whether you are single,
               married, a widow, or a mother, this ministry exists to uplift and empower you to walk in 
               the fullness of your God-given purpose.</p>
             <p>Under the leadership of Happy Gabriel, the Women’s Ministry is committed to:</p>
-            <h3>Core Activities</h3>
+            <h2>Core Activities</h2>
             <ul>
               <li><strong>Bible Study & Prayer:</strong> Weekly studies focus on the life of godly women, the character of Christ, and victorious Christian living.</li>
               <li><strong>Fellowship & Testimonies:</strong> A safe space for sharing life experiences and encouraging one another in faith.</li>

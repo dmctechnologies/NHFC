@@ -32,11 +32,11 @@
 												<label>Site Email : </label>
 												<input type="text" name="email" value="<?php echo $row['email']; ?>" class="form-control1 control3">
 												<label>Site Description </label>
-												<input type="text" name="site_desc" value="<?php echo $row['site_desc']; ?>" class="form-control1 control3"></textarea>
+												<input type="text" name="site_desc" value="<?php echo $row['site_desc']; ?>" class="form-control1 control3">
 												<label>Site Keywords </label>
 												<input type="text" name="site_keyword" value="<?php echo $row['site_keyword']; ?>" class="form-control1 control3">
 												<label>Google Analytic Code </label>
-												<input type="text" name="google_code" value="<?php echo $row['google_code']; ?>" class="form-control1 control3"></textarea>
+												<input type="text" name="google_code" value="<?php echo $row['google_code']; ?>" class="form-control1 control3">
 												<label>Street Name</label>
 												<input type="text" name="street" value="<?php echo $row['street']; ?>" class="form-control1 control3">
 												<label>City </label>

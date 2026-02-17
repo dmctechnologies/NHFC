@@ -3,10 +3,11 @@
 	session_start();
 	if(isset($_SESSION['SESS_FIRST_NAME'])){
     header("location: index.php");
+    exit();
 }
 ?>
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
 <title>NHFC Admin | Sign In</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +19,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/ui-refresh.css" rel='stylesheet' type='text/css' />
 <!-- Graph CSS -->
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- jQuery -->
@@ -49,30 +51,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="graphs">
 					<div class="sign-in-form">
 						<div class="sign-in-form-top">
-							<p><span>Sign In to</span> <a href="index.html">Admin</a></p>
+							<p><span>Sign In to</span> <a href="sign-in.php">Admin</a></p>
 						</div>
 						<div class="signin">
 							
 							<form action="process_login.php" method="post">
 							<div class="log-input">
 								<div class="log-input-left">
-								   <input type="text" class="user" name="username" value="Yourname" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
+								   <input type="text" class="user" name="username" placeholder="Username" autocomplete="username" required />
 								</div>
-								<span class="checkbox2">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
-								</span>
-								<div class="clearfix"> </div>
+								<div class="clearfix"></div>
 							</div>
 							<div class="log-input">
 								<div class="log-input-left">
-								   <input type="password" class="lock" value="password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
+								   <input type="password" class="lock" name="password" placeholder="Password" autocomplete="current-password" required />
 								</div>
-								<span class="checkbox2">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
-								</span>
-								<div class="clearfix"> </div>
+								<div class="clearfix"></div>
 							</div>
-							<input type="submit" value="Login to admin Area">
+							<input type="submit" value="Login to Admin Area">
 						</form>	 
 						</div>
 					</div>

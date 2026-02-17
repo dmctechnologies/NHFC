@@ -77,11 +77,11 @@
                         </a>
                     </div>
                     <div class="col-md-8 col-sm-8">
-                        <h3>
+                        <h2>
                             <a href="project_post.php?id=<?php echo $row['id']; ?>">
                                 <?php echo htmlspecialchars($row['project_title'], ENT_QUOTES, 'UTF-8'); ?>
                             </a>
-                        </h3>
+                        </h2>
                         
                         <?php echo isset($row['project_detail']) ? strip_tags(substr($row['project_detail'], 0, 180)) : 'No description available'; ?>...
                         <p>

@@ -36,7 +36,7 @@
               <header class="listing-header">
                 <div class="row">
                   <div class="col-md-6 col-sm-6">
-                    <h3>All events</h3>
+                    <h2>All events</h2>
                   </div>
                   
                 </div>
@@ -101,7 +101,7 @@
 	 ?>
 				<li class="item event-item">
                     <div class="event-detail">
-                      <h4><a href="event-detail.php?id=<?php echo $row['id'];?>"><?php echo $row['title'];?></a></h4>
+                      <h3><a href="event-detail.php?id=<?php echo $row['id'];?>"><?php echo $row['title'];?></a></h3>
                       <span class="event-dayntime meta-data"><?php echo $row['date'];?> | <?php echo $row['time'];?></span>
                        <?php echo strip_tags(substr($row['detail'],0,50)) ;?>...
 					  </div>

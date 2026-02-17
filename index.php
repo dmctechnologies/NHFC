@@ -24,9 +24,9 @@
           <div class="col-md-8 col-sm-6"> 
             <!-- Events Listing -->
             <div class="listing events-listing">
-                <header class="listing-header"></header>
-                <h3 class="titles" style="font-size: 24px;">NEW HARVEST FELLOWSHIP CHURCH</h3>
-                </header>
+              <header class="listing-header">
+                <h2 class="titles" style="font-size: 24px;">NEW HARVEST FELLOWSHIP CHURCH</h2>
+              </header>
 			  <?php
 				$result = $db->prepare("SELECT * FROM welcome");
 				$result->execute();
@@ -42,7 +42,7 @@
               <header class="listing-header">
                 <h3 class="titles">STATEMENT OF FAITH / OUR BELIEF</h3>
               </header>
-                <section class="listing-cont"></section>
+                <section class="listing-cont">
                 <div class="row">
                   <div class="col-md-6">
                   <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
@@ -55,13 +55,13 @@
                   </div>
                   <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
                     <h4 style="font-size: 18px; font-weight: bold;">HUMAN CONDITION</h4>
-                    <p>We believe that God created Adam and Eve in His image, but they sinned when tempted by Satan. In union with Adam, human beings are sinners by nature and by choice, alienated from God, and under His wrath. Only through God’s saving work in Jesus Christ can we be rescued, reconciled and renewed.</p>
+                    <p>We believe that God created Adam and Eve in His image, but they sinned when tempted by Satan. In union with Adam, human beings are sinners by nature and by choice, alienated from God, and under His wrath. Only through God's saving work in Jesus Christ can we be rescued, reconciled and renewed.</p>
                   </div>
                   </div>
                   <div class="col-md-6">
                   <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
                     <h4 style="font-size: 18px; font-weight: bold;">JESUS CHRIST</h4>
-                    <p>We believe that Jesus Christ is God incarnate, fully God and fully man, one Person in two natures. Jesus—Israel's promised Messiah—was conceived through the Holy Spirit and born of the virgin Mary. He lived a sinless life, was crucified under Pontius Pilate, arose bodily from the dead, ascended into heaven and sits at the right hand of God the Father as our High Priest and Advocate.</p>
+                    <p>We believe that Jesus, Israel's promised Messiah, was conceived through the Holy Spirit and born of the virgin Mary. He lived a sinless life, was crucified under Pontius Pilate, arose bodily from the dead, ascended into heaven and sits at the right hand of God the Father as our High Priest and Advocate.</p>
                   </div>
                   <div class="box" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; background-color: #f9f9f9;">
                     <h4 style="font-size: 18px; font-weight: bold;">THE WORK OF CHRIST</h4>
@@ -91,14 +91,14 @@
 				for($i=0; $row = $result->fetch(); $i++){   
                ?> 
                         <div class="post-title">
-                          <h2 class=" titles"><a href="news_post.php?id=<?php echo $row['id'];?>"><?php echo $row['news_title']; ?></a></h2>
-                          <span class="meta-data"><i class="fa fa-calendar"></i> on <?php echo $row['date']; ?></span>
-						 <p><?php echo strip_tags(substr($row['news_detail'],0,180)) ;?>...</p>
+                          <h2 class=" titles"><a href="news_post.php?id=<?php echo (int) $row['id']; ?>"><?php echo htmlspecialchars($row['news_title'], ENT_QUOTES, 'UTF-8'); ?></a></h2>
+                          <span class="meta-data"><i class="fa fa-calendar"></i> on <?php echo htmlspecialchars($row['date'], ENT_QUOTES, 'UTF-8'); ?></span>
+						 <p><?php echo htmlspecialchars(strip_tags(substr($row['news_detail'], 0, 180)), ENT_QUOTES, 'UTF-8'); ?>...</p>
 						 </div>
 						<?php } ?>
                       </div>
                     </div>
-					 <center> -- <a href="news-updates.php">All Lessons</a> --</center>
+					 <p class="text-center">-- <a href="news-updates.php">All Lessons</a> --</p>
                   </li>
                 </ul>
               </section>
@@ -115,17 +115,27 @@
             <?php
             // Fetch Verse of the Day from an external API
             $api_url = "https://beta.ourmanna.com/api/v1/get/?format=json";
-            $response = file_get_contents($api_url);
+            $http_context = stream_context_create(
+              array(
+                'http' => array(
+                  'timeout' => 3
+                )
+              )
+            );
+            $response = @file_get_contents($api_url, false, $http_context);
+            $fallback_message = "<p>Unable to fetch the verse of the day at the moment. Please try again later.</p>";
             if ($response !== false) {
-          $data = json_decode($response, true);
-          if (isset($data['verse']['details']['text']) && isset($data['verse']['details']['reference'])) {
-              echo "<p><strong>" . $data['verse']['details']['text'] . "</strong></p>";
-              echo "<p style='text-align: right;'><em>— " . $data['verse']['details']['reference'] . "</em></p>";
-          } else {
-              echo "<p>Unable to fetch the verse of the day at the moment. Please try again later.</p>";
-          }
+              $data = json_decode($response, true);
+              if (isset($data['verse']['details']['text']) && isset($data['verse']['details']['reference'])) {
+                  $verse_text = htmlspecialchars($data['verse']['details']['text'], ENT_QUOTES, 'UTF-8');
+                  $verse_reference = htmlspecialchars($data['verse']['details']['reference'], ENT_QUOTES, 'UTF-8');
+                  echo "<p><strong>" . $verse_text . "</strong></p>";
+                  echo "<p style='text-align: right;'><em>&mdash; " . $verse_reference . "</em></p>";
+              } else {
+                  echo $fallback_message;
+              }
             } else {
-          echo "<p>Unable to fetch the verse of the day at the moment. Please try again later.</p>";
+              echo $fallback_message;
             }
             ?>
           </div>
@@ -134,9 +144,9 @@
         <div class="widget">
           <h3 class="titles">OUR YOUTUBE</h3>
           <div class="youtube-bar" style="border: 1px solid #ddd; padding: 10px; border-radius: 5px; background-color: #f9f9f9;">
-            <iframe width="100%" height="150" src="https://youtu.be/341Hl5Q9EQ4?si=wRHeP6mHq7vQlxkv" frameborder="0" allowfullscreen></iframe>
+            <iframe width="100%" height="150" title="NHFC YouTube Channel" src="https://www.youtube.com/embed/341Hl5Q9EQ4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <p style="text-align: center; margin-top: 5px;">
-              <a href="https://www.youtube.com/@nhfctz" target="_blank" class="btn btn-default btn-sm">Visit Channel</a>
+              <a href="https://www.youtube.com/channel/UCIFm_llUrwwrdsYW_QzHlxA" target="_blank" rel="noopener noreferrer" class="btn btn-default btn-sm">Visit Channel</a>
             </p>
           </div>
         </div>
@@ -159,8 +169,9 @@
 				$result = $db->prepare("SELECT * FROM gallery ORDER BY id DESC Limit 3");
 				$result->execute();
 				for($i=0; $row = $result->fetch(); $i++){   
+                $gallery_file = htmlspecialchars($row['file'], ENT_QUOTES, 'UTF-8');
                ?> 
-        <div class="col-md-3 col-sm-3 post format-image"> <a href="uploads/<?php echo $row['file'];?>" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="uploads/<?php echo $row['file'];?>" alt=""> </a> </div>
+        <div class="col-md-3 col-sm-3 post format-image"> <a href="uploads/<?php echo $gallery_file; ?>" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="uploads/<?php echo $gallery_file; ?>" alt="NHFC gallery photo"> </a> </div>
         <?php } ?>
 		</div>
     </div>

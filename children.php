@@ -44,8 +44,7 @@
         <div class="col-md-9">
         <header class="single-post-header clearfix">
             <div class="post-header-content">
-              <h2></h2>
-              <p class="post-meta">By <a href="#">New Harvest Fellowship Church</a> | <span class="post-date">2025</span></p>
+              <p class="post-meta">By <a href="about.php">New Harvest Fellowship Church</a> | <span class="post-date">2025</span></p>
             </div>
           </header>
           <div class="post-content">

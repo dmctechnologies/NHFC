@@ -1,6 +1,6 @@
 <!--footer section start-->
 			<footer>
-			   <p>&copy 2025 NHFC Admin Panel. All Rights Reserved | Designed by <a href="#" target="_blank">dmcSoft.</a></p>
+			   <p>&copy; <?= date('Y'); ?> NHFC Admin Panel. All Rights Reserved | Designed by <a href="#" target="_blank" rel="noopener">dmcSoft</a>.</p>
 			</footer>
         <!--footer section end-->
 

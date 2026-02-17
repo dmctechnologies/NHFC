@@ -120,6 +120,16 @@
 
    });
 
+   // Close mobile sidebar when user clicks outside it.
+   jQuery(document).on('click', function(event) {
+      if (
+         jQuery('body').hasClass('left-side-show') &&
+         !jQuery(event.target).closest('.left-side, .toggle-btn').length
+      ) {
+         jQuery('body').removeClass('left-side-show');
+      }
+   });
+
    function searchform_reposition() {
       if(jQuery('.searchform').css('position') == 'relative') {
          jQuery('.searchform').insertBefore('.left-side-inner .logged-user');
@@ -129,13 +139,10 @@
    }
 })(jQuery);
 
-                      // Dropdowns Script
-						$(document).ready(function() {
-						  $(document).on('click', function(ev) {
-						    ev.stopImmediatePropagation();
-						    $(".dropdown-toggle").dropdown("active");
-						  });
-						});
+// Dropdowns Script
+$(function() {
+   $('.dropdown-toggle').dropdown();
+});
 						
 	
      

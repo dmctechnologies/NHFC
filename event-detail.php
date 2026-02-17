@@ -41,7 +41,11 @@
         <div class="row">
           <div class="col-md-9">
             <header class="single-post-header clearfix">
-              <nav class="btn-toolbar pull-right"> <a href="#" class="btn btn-default" data-placement="bottom" data-toggle="tooltip" data-original-title="Print" ><i class="fa fa-print"></i></a> <a href="#" class="btn btn-default" data-placement="bottom" data-toggle="tooltip" data-original-title="Contact us" ><i class="fa fa-envelope"></i></a> <a href="#" class="btn btn-default" data-placement="bottom" data-toggle="tooltip" data-original-title="Share event" ><i class="fa fa-location-arrow"></i></a> </nav>
+              <nav class="btn-toolbar pull-right">
+                <button type="button" class="btn btn-default" data-placement="bottom" data-toggle="tooltip" data-original-title="Print" aria-label="Print event"><i class="fa fa-print"></i></button>
+                <button type="button" class="btn btn-default" data-placement="bottom" data-toggle="tooltip" data-original-title="Contact us" aria-label="Contact us"><i class="fa fa-envelope"></i></button>
+                <button type="button" class="btn btn-default" data-placement="bottom" data-toggle="tooltip" data-original-title="Share event" aria-label="Share event"><i class="fa fa-location-arrow"></i></button>
+              </nav>
               <h2 class="post-title"><?php echo $row['title']; ?></h2>
             </header>
             <article class="post-content">
@@ -67,7 +71,7 @@
                 </div>
                 <?php echo $row['detail']; ?>
 				 <div class="post-meta"> 
-				<h5>Share this Event:</h5>                                    
+				<h4>Share this Event:</h4>                                    
 <div class="addthis_sharing_toolbox"></div>
 			  </div>
 				</div>

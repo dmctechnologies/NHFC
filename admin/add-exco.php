@@ -33,7 +33,7 @@
 												<label>Upload Image</label>
 												<input type="file" name="file" class="form-control1 control3">
 											<hr>
-											<input type="submit" value="Submit Admin">
+											<input type="submit" value="Save Exco">
 										</form>
 									</div>
 								 </div>
