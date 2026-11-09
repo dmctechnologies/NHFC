@@ -14,60 +14,58 @@
 							</div>
 						</div>
 						<div class="col-md-3 widget widget1">
+							<a href="all-news.php" style="text-decoration: none; color: inherit;">
 							<div class="r3_counter_box">
 								<i class="fa fa-comment"></i>
 								<div class="stats">
 				<?php
-                // include('../connect.php');
 				$result = $db->prepare("SELECT count(*) as total FROM news");
 				$result->execute();
-				for($i=0; $row = $result->fetch(); $i++){
+				$row = $result->fetch();
                 ?>
 								  <h5><?php echo $row['total']; ?> </h5>
 								  <div class="grow grow1">
 									<p>Total News</p>
-								  </div><?php } ?>
+								  </div>
 								</div>
 							</div>
+							</a>
 						</div>
 						<div class="col-md-3 widget widget1">
+							<a href="all-events.php" style="text-decoration: none; color: inherit;">
 							<div class="r3_counter_box">
 								<i class="fa fa-eye"></i>
 								<div class="stats">
 								<?php
-                           // include('../connect.php');
 				$result = $db->prepare("SELECT count(*) as total FROM events");
 				$result->execute();
-				for($i=0; $row = $result->fetch(); $i++){
-
-
+				$row = $result->fetch();
                ?>
 								  <h5><?php echo $row['total']; ?></h5>
 								  <div class="grow grow3">
 									<p>Total Events</p>
-								  </div> <?php } ?>
+								  </div>
 								</div>
 							</div>
+							</a>
 						 </div>
 						 <div class="col-md-3 widget">
+						 	<a href="adminlist.php" style="text-decoration: none; color: inherit;">
 							<div class="r3_counter_box">
 								<i class="fa fa-inbox"></i>
 								<div class="stats">
 								<?php
-                           // include('../connect.php');
 				$result = $db->prepare("SELECT count(*) as total FROM table_admin");
 				$result->execute();
-				for($i=0; $row = $result->fetch(); $i++){
-
-
+				$row = $result->fetch();
                ?>
 								  <h5><?php echo $row['total']; ?> </h5>
 								  <div class="grow grow2">
 									<p>Total Admins</p>
 								  </div>
-								  <?php } ?>
 								</div>
 							</div>
+							</a>
 						</div>
 						<div class="clearfix"> </div>
 					</div>

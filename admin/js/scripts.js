@@ -1,19 +1,7 @@
 (function() {
     "use strict";
 
-    // custom scrollbar
-
-    $("html").niceScroll({styler:"fb",cursorcolor:"#27cce4", cursorwidth: '5', cursorborderradius: '10px', background: '#424f63', spacebarenabled:false, cursorborder: '0',  zindex: '1000'});
-
-    $(".left-side").niceScroll({styler:"fb",cursorcolor:"#27cce4", cursorwidth: '3', cursorborderradius: '10px', background: '#424f63', spacebarenabled:false, cursorborder: '0'});
-
-
-    $(".left-side").getNiceScroll();
-    if ($('body').hasClass('left-side-collapsed')) {
-        $(".left-side").getNiceScroll().hide();
-    }
-
-
+    // custom scrollbar - removed niceScroll
 
     // Toggle Left Menu
    jQuery('.menu-list > a').click(function() {
@@ -120,16 +108,6 @@
 
    });
 
-   // Close mobile sidebar when user clicks outside it.
-   jQuery(document).on('click', function(event) {
-      if (
-         jQuery('body').hasClass('left-side-show') &&
-         !jQuery(event.target).closest('.left-side, .toggle-btn').length
-      ) {
-         jQuery('body').removeClass('left-side-show');
-      }
-   });
-
    function searchform_reposition() {
       if(jQuery('.searchform').css('position') == 'relative') {
          jQuery('.searchform').insertBefore('.left-side-inner .logged-user');
@@ -139,10 +117,13 @@
    }
 })(jQuery);
 
-// Dropdowns Script
-$(function() {
-   $('.dropdown-toggle').dropdown();
-});
+                      // Dropdowns Script
+						$(document).ready(function() {
+						  $(document).on('click', function(ev) {
+						    ev.stopImmediatePropagation();
+						    $(".dropdown-toggle").dropdown("active");
+						  });
+						});
 						
 	
      

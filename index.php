@@ -1,5 +1,118 @@
 <?php include "header.php"; ?>  
 <!-- End Site Header --> 
+
+<?php
+$site_settings = ORM::for_table('settings')->find_one(1);
+$home_ad_enabled = $site_settings ? (int) $site_settings->home_ad_enabled : 0;
+$home_ad_title = $site_settings ? trim((string) $site_settings->home_ad_title) : '';
+$home_ad_body = $site_settings ? trim((string) $site_settings->home_ad_body) : '';
+$home_ad_button_text = $site_settings ? trim((string) $site_settings->home_ad_button_text) : '';
+$home_ad_button_url = $site_settings ? trim((string) $site_settings->home_ad_button_url) : '';
+$home_ad_image = $site_settings ? trim((string) $site_settings->home_ad_image) : '';
+$show_home_ad = ($home_ad_enabled === 1) && ($home_ad_title !== '' || $home_ad_body !== '' || $home_ad_image !== '');
+$has_ad_image = $home_ad_image !== '';
+if ($home_ad_button_url !== '' && $home_ad_button_text === '') {
+  $home_ad_button_text = 'Learn More';
+}
+?>
+
+<?php if ($show_home_ad): ?>
+<style>
+  .home-ad-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 24px;
+  }
+  .home-ad-overlay.is-visible {
+    display: flex;
+  }
+  .home-ad-modal {
+    background: #ffffff;
+    color: #222;
+    width: 100%;
+    max-width: 760px;
+    border-radius: 10px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 0;
+  }
+  .home-ad-modal--single {
+    grid-template-columns: 1fr;
+  }
+  .home-ad-content {
+    padding: 28px 30px 30px;
+  }
+  .home-ad-content h3 {
+    margin-top: 0;
+    font-size: 26px;
+  }
+  .home-ad-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+  .home-ad-media {
+    background: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home-ad-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .home-ad-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: 0;
+    background: transparent;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: #555;
+  }
+  @media (max-width: 720px) {
+    .home-ad-modal {
+      grid-template-columns: 1fr;
+    }
+    .home-ad-media {
+      max-height: 220px;
+    }
+  }
+</style>
+
+<div id="home-ad-overlay" class="home-ad-overlay" aria-hidden="true">
+  <div class="home-ad-modal<?php echo $has_ad_image ? '' : ' home-ad-modal--single'; ?>" role="dialog" aria-modal="true" aria-labelledby="home-ad-title">
+    <button type="button" class="home-ad-close" aria-label="Close ad">&times;</button>
+    <div class="home-ad-content">
+      <?php if ($home_ad_title !== ''): ?>
+      <h3 id="home-ad-title"><?php echo htmlspecialchars($home_ad_title, ENT_QUOTES, 'UTF-8'); ?></h3>
+      <?php endif; ?>
+      <?php if ($home_ad_body !== ''): ?>
+      <p><?php echo nl2br(htmlspecialchars($home_ad_body, ENT_QUOTES, 'UTF-8')); ?></p>
+      <?php endif; ?>
+      <?php if ($home_ad_button_url !== ''): ?>
+      <a class="btn btn-primary" href="<?php echo htmlspecialchars($home_ad_button_url, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($home_ad_button_text, ENT_QUOTES, 'UTF-8'); ?></a>
+      <?php endif; ?>
+    </div>
+    <?php if ($has_ad_image): ?>
+    <div class="home-ad-media" aria-hidden="true">
+      <img src="<?php echo htmlspecialchars($home_ad_image, ENT_QUOTES, 'UTF-8'); ?>" alt="Homepage announcement">
+    </div>
+    <?php endif; ?>
+  </div>
+</div>
+<?php endif; ?>
   <!-- Start Hero Slider -->
   <div class="hero-slider flexslider clearfix" data-autoplay="yes" data-pagination="yes" data-arrows="yes" data-style="fade" data-pause="yes">
     <ul class="slides">
@@ -190,4 +303,43 @@
   </div>
   <!-- End Featured Gallery --> 
   <!-- Start Footer -->
+  <?php if ($show_home_ad): ?>
+  <script>
+    (function () {
+      var overlay = document.getElementById('home-ad-overlay');
+      if (!overlay) {
+        return;
+      }
+
+      function closeAd() {
+        overlay.classList.remove('is-visible');
+        overlay.setAttribute('aria-hidden', 'true');
+      }
+
+      function openAd() {
+        overlay.classList.add('is-visible');
+        overlay.setAttribute('aria-hidden', 'false');
+      }
+
+      document.addEventListener('click', function (event) {
+        if (event.target.classList.contains('home-ad-close')) {
+          closeAd();
+        }
+        if (event.target === overlay) {
+          closeAd();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeAd();
+        }
+      });
+
+      window.addEventListener('load', function () {
+        openAd();
+      });
+    })();
+  </script>
+  <?php endif; ?>
   <?php include "footer.php"; ?>

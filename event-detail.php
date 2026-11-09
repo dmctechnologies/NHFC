@@ -6,7 +6,23 @@
 	$result = $db->prepare("SELECT * FROM events where id= :post_id");
 	$result->bindParam(':post_id', $id);
 	$result->execute();
-	for($i=0; $row = $result->fetch(); $i++){                        
+	for($i=0; $row = $result->fetch(); $i++){  
+        $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+        $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
+        $basePath = rtrim(str_replace('\\', '/', dirname($_SERVER['PHP_SELF'])), '/');
+        $eventId = (int) $row['id'];
+        $eventUrl = $scheme . '://' . $host . $basePath . '/event-detail.php?id=' . $eventId;
+        $shareUrl = rawurlencode($eventUrl);
+        $shareTitle = rawurlencode($row['title']);
+        $shareText = rawurlencode($row['title'] . ' - ' . $eventUrl);
+        $shareEmailSubject = rawurlencode('Event: ' . $row['title']);
+        $shareEmailBody = rawurlencode("Check out this event: " . $row['title'] . "\n" . $eventUrl);
+
+        $facebookShare = 'https://www.facebook.com/sharer/sharer.php?u=' . $shareUrl;
+        $twitterShare = 'https://twitter.com/intent/tweet?url=' . $shareUrl . '&text=' . $shareTitle;
+        $whatsappShare = 'https://wa.me/?text=' . $shareText;
+        $linkedinShare = 'https://www.linkedin.com/sharing/share-offsite/?url=' . $shareUrl;
+        $emailShare = 'mailto:?subject=' . $shareEmailSubject . '&body=' . $shareEmailBody;
 ?>
   <div class="nav-backed-header parallax">
     <div class="container">
@@ -50,6 +66,12 @@
             </header>
             <article class="post-content">
               <div class="event-description"> 
+                <?php if (!empty($row['thumbnail'])): ?>
+                  <div class="event-poster">
+                    <img src="uploads/<?php echo htmlspecialchars($row['thumbnail'], ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($row['title'], ENT_QUOTES, 'UTF-8'); ?>" class="img-responsive">
+                  </div>
+                  <div class="spacer-20"></div>
+                <?php endif; ?>
                 <div class="spacer-20"></div>
                 <div class="row">
                   <div class="col-md-8">
@@ -69,10 +91,15 @@
                   </div>
                   
                 </div>
-                <?php echo $row['detail']; ?>
 				 <div class="post-meta"> 
-				<h4>Share this Event:</h4>                                    
-<div class="addthis_sharing_toolbox"></div>
+				<h4>Share this Event:</h4>
+                <div class="social-icons">
+                  <a href="<?php echo htmlspecialchars($facebookShare, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+                  <a href="<?php echo htmlspecialchars($twitterShare, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+                  <a href="<?php echo htmlspecialchars($whatsappShare, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i class="fa fa-whatsapp"></i></a>
+                  <a href="<?php echo htmlspecialchars($linkedinShare, ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+                  <a href="<?php echo htmlspecialchars($emailShare, ENT_QUOTES, 'UTF-8'); ?>" aria-label="Share via Email"><i class="fa fa-envelope"></i></a>
+                </div>
 			  </div>
 				</div>
 				  <div class="fb-comments" data-href="event-detail.php?id=<?php echo $row['id'];?>" data-width="100%" data-numposts="5"></div>

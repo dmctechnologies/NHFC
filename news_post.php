@@ -2,7 +2,7 @@
   <!-- End Site Header --> 
   <!-- Start Nav Backed Header -->
    <?php
-               $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+               $id=$_GET['id'];
 	$result = $db->prepare("SELECT * FROM news where id= :post_id");
 	$result->bindParam(':post_id', $id);
 	$result->execute();
@@ -14,7 +14,7 @@
         <div class="col-md-12">
           <ol class="breadcrumb">
             <li><a href="index.php">Home</a></li>
-            <li><a href="news-updates.php">News Update</a></li>
+            <li><a href="news-update.php">Lessons</a></li>
             <li class="active"><?php echo $row['news_title']; ?></li>
           </ol>
         </div>
@@ -27,7 +27,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-sm-8">
-          <h1>News</h1>
+          <h1>Church Lessons</h1>
         </div>
       </div>
     </div>
@@ -43,22 +43,17 @@
               <h2 class="post-title"><?php echo $row['news_title']; ?></h2>
             </header>
             <article class="post-content"> <span class="post-meta meta-data"><span><i class="fa fa-calendar"></i> Posted on <?php echo $row['date']; ?></span> <span></i> </span></span>
-              <div class="featured-image"> <img src="uploads/<?php echo $row['file'];?>" alt="<?php echo htmlspecialchars($row['news_title'], ENT_QUOTES, 'UTF-8'); ?>"> </div>
+              <div class="featured-image"> <img src="uploads/<?php echo $row['file'];?>" alt=""> </div>
 <div><?php echo $row['news_detail']; ?></div>
               <div class="post-meta"> 
-			   <h3>Share this post:</h3>                                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+			   <h5></h5>                                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <div class="addthis_sharing_toolbox"></div>
 			  </div>
-               <div class="fb-comments" data-href="news_post.php?id=<?php echo $row['id'];?>" data-width="100%" data-numposts="5"></div>
+			   <!-- <div class="fb-comments" data-href="read.php?id=<?php echo $row['id'];?>/docs/plugins/comments#configurator" data-width="100%" data-numposts="5"></div> -->
             </article>
             </div>
 		  <?php } ?>
           <!-- Start Sidebar -->
           <?php include"side-bar.php"; ?>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
   <!-- Start Footer -->
   <?php include "footer.php"; ?>

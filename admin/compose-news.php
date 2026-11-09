@@ -21,9 +21,9 @@
 										<form class="com-mail" action="save-news.php" method="post" enctype="multipart/form-data">
 											
 												<label>News Title : </label>
-												<input type="text" name="news_title" class="form-control1 control3" placeholder="News Title" >
+												<input type="text" name="news_title" class="form-control1 control3" placeholder="News Title" required>
 												<label>News Detail : </label>
-												<textarea rows="6" id="body" name="news_detail" class="form-control1 control2"></textarea>
+												<textarea rows="6" id="body" name="news_detail" class="form-control1 control2" required></textarea>
 												 <script>
                 CKEDITOR.replace( 'body' );
             </script>

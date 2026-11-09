@@ -1,16 +1,15 @@
 <?php include "header.php"; ?>
 <!-- End Site Header -->
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9969807679459868"
+     crossorigin="anonymous"></script>
 <!-- Start Nav Backed Header -->
 <div class="nav-backed-header parallax">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <ol class="breadcrumb">
-          <li><a href="index.php">Home</a></li>
-          <li class="active">Contact</li>
-        </ol>
-      </div>
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.php">Home</a></li>
+        <li class="active">Contact</li>
+      </ol>
     </div>
   </div>
 </div>
@@ -29,13 +28,7 @@
         <div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow">
           <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
             <p><strong>We would love to hear from you! Please fill out the form below and we will get back to you as soon as possible.</strong></p>
-            <?php if (get('mail') === 'success'): ?>
-              <div class="alert alert-success">Message sent successfully. We will contact you soon.</div>
-            <?php elseif (get('mail') === 'failed'): ?>
-              <div class="alert alert-danger">Message could not be sent right now. Please try again later.</div>
-            <?php elseif (get('mail') === 'invalid'): ?>
-              <div class="alert alert-warning">Please fill all required fields with valid details.</div>
-            <?php endif; ?>
+           
           </div>
         </div>
         <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow">
@@ -48,7 +41,7 @@
                   <input type="text" placeholder="First" required="required" name="field_name[value]" id="gkt_form_fe8826db_field_name" />
                 </div>
                 <div class="ghostkit-form-field-name-last">
-                  <input type="text" placeholder="Last" name="field_name[last]" id="gkt_form_fe8826db_field_name_last" />
+                  <input type="text" placeholder="Last" name="field_name[last]" id="gkt_form_fe8826db_field_name" />
                 </div>
               </div>
             </div>
@@ -72,7 +65,7 @@
             </div>
 
             <div class="ghostkit-form-submit-button">
-              <button type="submit" class="ghostkit-button ghostkit-button-md ghostkit-button-with-outline ghostkit-custom-29R04e wp-element-button">
+              <button class="ghostkit-button ghostkit-button-md ghostkit-button-with-outline ghostkit-custom-29R04e wp-element-button">
                 <span class="ghostkit-button-text">Submit</span>
               </button>
             </div>

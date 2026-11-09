@@ -29,14 +29,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `events` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `title` varchar(60) NOT NULL,
   `detail` varchar(500) NOT NULL,
   `date` varchar(60) NOT NULL,
   `time` varchar(30) NOT NULL,
   `venue` varchar(120) NOT NULL,
-  `phone` varchar(13) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `phone` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -58,24 +57,22 @@ INSERT INTO `events` (`id`, `title`, `detail`, `date`, `time`, `venue`, `phone`)
 --
 -- Table structure for table `excos`
 --
+
 CREATE TABLE `excos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(75) NOT NULL,
   `office` varchar(75) NOT NULL,
   `zone` varchar(75) NOT NULL,
-  `phone` varchar(12) DEFAULT NULL,
-  `email` varchar(75) NOT NULL,
-  `file` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `phone` varchar(12) NOT NULL,
+  `email` varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `excos`
 --
 
-INSERT INTO `excos` (`id`, `name`, `office`, `zone`, `phone`, `email`, `file`) VALUES
-(1, 'Rt. Rev\'d Okeke', 'National Chiarman', 'Orlu', '', 'okekert@efac.com');
+INSERT INTO `excos` (`id`, `name`, `office`, `zone`, `phone`, `email`) VALUES
+(1, 'Rt. Rev\'d Okeke', 'National Chiarman', 'Orlu', '08022445353', 'okekert@efac.com');
 
 -- --------------------------------------------------------
 
@@ -110,14 +107,13 @@ INSERT INTO `gallery` (`id`, `caption`, `file`) VALUES
 
 --
 -- Table structure for table `news`
+--
+
 CREATE TABLE `news` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(70) NOT NULL,
   `news_title` varchar(200) NOT NULL,
   `news_detail` varchar(5000) NOT NULL,
-  `file` varchar(150) DEFAULT NULL,
-  `date` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `file` varchar(150) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -136,72 +132,6 @@ INSERT INTO `news` (`id`, `news_title`, `news_detail`, `file`, `date`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `projects`
---
-
-CREATE TABLE `projects` (
-  `id` int(70) NOT NULL,
-  `project_title` varchar(255) NOT NULL,
-  `project_detail` varchar(5000) NOT NULL,
-  `file` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `projects`
---
-
-INSERT INTO `projects` (`id`, `project_title`, `project_detail`, `file`) VALUES
-(1, 'Sample Project', 'This is a sample project description.', 'sample_file.png');
-
---
--- Indexes for table `projects`
---
-ALTER TABLE `projects`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for table `projects`
---
-ALTER TABLE `projects`
-  MODIFY `id` int(70) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-  --
-  -- Table structure for table `project_updates`
-  --
-
-  CREATE TABLE `project_updates` (
-    `id` int(11) NOT NULL,
-    `project_id` int(70) NOT NULL,
-    `update_detail` varchar(2000) NOT NULL,
-    `update_date` date NOT NULL
-  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-  --
-  -- Dumping data for table `project_updates`
-  --
-
-  INSERT INTO `project_updates` (`id`, `project_id`, `update_detail`, `update_date`) VALUES
-  (1, 1, 'Initial project setup completed.', '2023-01-01');
-
-  --
-  -- Indexes for table `project_updates`
-  --
-  ALTER TABLE `project_updates`
-    ADD PRIMARY KEY (`id`),
-    ADD KEY `project_id` (`project_id`);
-
-  --
-  -- AUTO_INCREMENT for table `project_updates`
-  --
-  ALTER TABLE `project_updates`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-  --
-  -- Foreign key constraint for `project_updates`
-  --
-  ALTER TABLE `project_updates`
-    ADD CONSTRAINT `fk_project_updates_project_id` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 --
 -- Table structure for table `quote`
 --
@@ -253,15 +183,14 @@ INSERT INTO `settings` (`id`, `site_name`, `site_title`, `email`, `site_desc`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `table_admin`
+--
+
 CREATE TABLE `table_admin` (
-  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `id` int(20) NOT NULL,
   `name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `file` varchar(567) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
   `password` varchar(45) NOT NULL,
   `file` varchar(567) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -271,7 +200,7 @@ CREATE TABLE `table_admin` (
 --
 
 INSERT INTO `table_admin` (`id`, `name`, `email`, `username`, `password`, `file`) VALUES
-(1, 'Ps.Jacob Bonny', 'psjacob@newharvestfellowshipchurch.tz', 'psjacob', 'jacob2025#', ''),
+(1, 'Awolu Faith', 'awolu_faith@live.com', 'admin', 'admin', ''),
 (3, 'AdegbemiGa Y1', 'atme@you.u', 'Alagbaka', 'mememem', 'efac_d8ba6926d6b1c5c485411c9f99a948a0.png'),
 (4, 'tester', 'tester@dispostable.com', 'tester', 'tester1', 'efac_b8b0d7464b55213c435110abcb5e2e45.php');
 
@@ -406,18 +335,6 @@ ALTER TABLE `news`
 ALTER TABLE `quote`
   ADD PRIMARY KEY (`id`);
 
-  --
-  -- Indexes for table `projects`
-  --
-  ALTER TABLE `projects`
-    ADD PRIMARY KEY (`id`);
-
-    --
-    -- Indexes for table `project_updates`
-    --
-    ALTER TABLE `project_updates`
-      ADD PRIMARY KEY (`id`),
-      ADD KEY `project_id` (`project_id`);
 --
 -- Indexes for table `settings`
 --

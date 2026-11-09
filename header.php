@@ -4,11 +4,14 @@ include "connect.php";
 ?>
 <!DOCTYPE HTML>
 <html class="no-js">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9969807679459868"
+     crossorigin="anonymous"></script>
 <!-- Basic Page Needs
   ================================================== -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <title>NHFC Tanzania</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
@@ -58,7 +61,7 @@ include "connect.php";
             <ul class="top-navigation ">
               <li><a href="donate.php">Donate Now</a></li>
             </ul>
-            <a href="javascript:void(0);" class="visible-sm visible-xs menu-toggle" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i></a> </div>
+            <a href="#" class="visible-sm visible-xs menu-toggle"><i class="fa fa-bars"></i></a> </div>
         </div>
       </div>
     </div>
@@ -75,13 +78,14 @@ include "connect.php";
                     <li><a href="our-excos.php">Leadership Team</a></li>
                   </ul>
                 </li>
-                <li><a href="javascript:void(0);" aria-haspopup="true" aria-expanded="false">Ministries</a>
+                <li><a href="#">Ministries</a>
                   <ul class="dropdown">
                     <li><a href="youth.php">Youth Ministry</a></li>
                     <li><a href="women.php">Women Ministry</a></li>
                     <li><a href="children.php">Children Ministry</a></li>
                     <li><a href="outreach.php">Outreach Ministry</a></li>
                   </ul>
+                </li>
                 </li>
                  <li><a href="events.php">Events</a>
                   
@@ -90,7 +94,6 @@ include "connect.php";
                 </li>
                 <li><a href="gallery.php">Gallery</a>
                 </li>
-                <li><a href="podcast.php">Podcasts</a></li>
                 <li><a href="contact.php">Contact Us</a> </li>
 				</ul>
             </nav>

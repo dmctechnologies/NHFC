@@ -9,7 +9,7 @@
 							<div class="Compose-Message">               
 								<div class="panel panel-default">
 									<div class="panel-heading">
-									Edit Welcome Note
+									Edit About Us
 									</div>
 									<?php if(get("success")):?>
 											<div>

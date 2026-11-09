@@ -7,12 +7,14 @@
  * Displays all children fetched from the
  * database with donation links and stories.
  ***************************************/
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 // Database configuration
 $db_host = 'localhost';
-$db_user = 'root';
-$db_pass = ''; // Change this if your MySQL root has a password
-$db_name = 'farvision';
+$db_user = 'newharve_farvision';
+$db_pass = 'ZCAH4lIOp.;N(A%u';// Change this if your MySQL root has a password
+$db_name = 'newharve_farvision';
 
 // Create connection
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);

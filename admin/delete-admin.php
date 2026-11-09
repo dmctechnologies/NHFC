@@ -3,19 +3,13 @@
 
 
 	include'../connect.php';
-	$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
-    if ($id <= 0) {
-        header("location:adminlist.php?failed=true");
-        exit();
-    }
+	$id=$_GET['id'];
 	$result = $db->prepare("DELETE FROM table_admin WHERE id= :post_id");
-	$result->bindParam(':post_id', $id, PDO::PARAM_INT);
+	$result->bindParam(':post_id', $id);
        if($result->execute()){
       header("location:adminlist.php?success=true");
-      exit();
         }else{
             header("location:adminlist.php?failed=true");
-            exit();
         } 
 		
 ?>

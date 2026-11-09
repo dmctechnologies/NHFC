@@ -1,6 +1,7 @@
 <?php include "header.php"; ?>
 <!-- End Site Header --> 
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9969807679459868"
+     crossorigin="anonymous"></script>
 <!-- Start Nav Backed Header -->
 <div class="nav-backed-header parallax" style="background-image:url(images/slide2.jpg);">
   <div class="container">
@@ -34,7 +35,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <img src="images/pastor.jpg" alt="Pastor Jacob and Lady Happy" class="img-fluid">
+        <img src="images/pastor.png" alt="Pastor Jacob and Lady Happy" class="img-fluid">
       </div>
       <div class="col-md-8">
         <h2 class="text-justify">Greetings in the name of our Lord and Savior, Jesus Christ!</h2>

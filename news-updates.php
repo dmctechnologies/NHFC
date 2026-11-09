@@ -7,7 +7,7 @@
         <div class="col-md-12">
           <ol class="breadcrumb">
             <li><a href="index.php">Home</a></li>
-            <li class="active">News Update</li>
+            <li class="active">Lessons Update</li>
           </ol>
         </div>
       </div>
@@ -19,7 +19,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1>Latest News</h1>
+          <h1>Latest Church services & Lessons</h1>
         </div>
       </div>
     </div>
@@ -90,9 +90,9 @@
                                                                       
             <article class="post">
               <div class="row">
-                <div class="col-md-4 col-sm-4"> <a href="news_post.php?id=<?php echo $row['id'];?>"><img src="uploads/<?php echo $row['file'];?>" alt="<?php echo htmlspecialchars($row['news_title'], ENT_QUOTES, 'UTF-8'); ?>" class="img-thumbnail img-responsive"></a> </div>
+                <div class="col-md-4 col-sm-4"> <a href="news_post.php?id=<?php echo $row['id'];?>"><img src="uploads/<?php echo $row['file'];?>" alt="" class="img-thumbnail img-responsive"></a> </div>
                 <div class="col-md-8 col-sm-8">
-                  <h2><a href="news_post.php?id=<?php echo $row['id'];?>"><?php echo $row['news_title']; ?></a></h2>
+                  <h3><a href="news_post.php?id=<?php echo $row['id'];?>"><?php echo $row['news_title']; ?></a></h3>
                   <span class="post-meta meta-data"> <span><i class="fa fa-calendar"></i> <?php echo $row['date']; ?></span></span>
                   <?php echo strip_tags(substr($row['news_detail'],0,180)) ;?>...
 				  <p><a href="news_post.php?id=<?php echo $row['id'];?>" class="btn btn-primary">Continue reading <i class="fa fa-long-arrow-right"></i></a></p>
@@ -130,10 +130,5 @@
 			</div>
           <!-- Start Sidebar -->
 		  <?php include"side-bar.php"; ?>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
   <!-- Start Footer -->
   <?php include "footer.php"; ?>

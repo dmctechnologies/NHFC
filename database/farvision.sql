@@ -1,6 +1,6 @@
 -- Create database
-CREATE DATABASE IF NOT EXISTS farvision;
-USE farvision;
+CREATE DATABASE IF NOT EXISTS newharve_farvision;
+USE newharve_farvision;
 
 -- Create kids table
 CREATE TABLE IF NOT EXISTS kids (
@@ -54,5 +54,3 @@ CREATE TABLE IF NOT EXISTS admin_users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Note: Remember to create a secure password hash
--- Example: INSERT INTO admin_users (username, password) VALUES ('admin', PASSWORD('your_secure_password'));

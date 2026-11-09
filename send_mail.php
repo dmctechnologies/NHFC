@@ -1,66 +1,60 @@
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: contact.php?mail=invalid');
-    exit();
-}
-
 // Extract fields from nested array structure
-$firstName = htmlspecialchars(trim($_POST['field_name']['value'] ?? ''), ENT_QUOTES, 'UTF-8');
-$lastName = htmlspecialchars(trim($_POST['field_name']['last'] ?? ''), ENT_QUOTES, 'UTF-8');
+$firstName = htmlspecialchars(trim($_POST['field_name']['value'] ?? ''));
+$lastName = htmlspecialchars(trim($_POST['field_name']['last'] ?? ''));
 $email = filter_var(trim($_POST['field_email']['value'] ?? ''), FILTER_VALIDATE_EMAIL);
-$message = htmlspecialchars(trim($_POST['field_message']['value'] ?? ''), ENT_QUOTES, 'UTF-8');
-$phone = htmlspecialchars(trim($_POST['field_phone']['value'] ?? ''), ENT_QUOTES, 'UTF-8');
+$message = htmlspecialchars(trim($_POST['field_message']['value'] ?? ''));
+$phone = htmlspecialchars(trim($_POST['field_phone']['value'] ?? ''));
 
+
+// Combine name parts
 $name = trim($firstName . ' ' . $lastName);
-if ($name === '' || !$email || $message === '') {
-    header('Location: contact.php?mail=invalid');
-    exit();
+$subject = "New message from contact form";
+
+// Validation
+if (!$name || !$email || !$message) {
+    exit("All fields are required and must be valid.");
 }
 
 $mail = new PHPMailer(true);
 
 try {
-    $smtpHost = getenv('SMTP_HOST') ?: 'mail.newharvestfellowshipchurch.tz';
-    $smtpUser = getenv('SMTP_USER') ?: 'info@newharvestfellowshipchurch.tz';
-    $smtpPass = getenv('SMTP_PASS') ?: 'DS8ywrFb8TGLDYw';
-    $smtpPort = (int) (getenv('SMTP_PORT') ?: 587);
-    $toEmail = getenv('MAIL_TO') ?: 'info@newharvestfellowshipchurch.tz';
-
     // Server settings
     $mail->SMTPDebug = 0;
     $mail->isSMTP();
-    $mail->Host = $smtpHost;
+    $mail->Host = 'mail.newharvestfellowshipchurch.tz';
     $mail->SMTPAuth = true;
-    $mail->Username = $smtpUser;
-    $mail->Password = $smtpPass;
+    $mail->Username = 'info@newharvestfellowshipchurch.tz';
+    $mail->Password = 'DS8ywrFb8TGLDYw';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = $smtpPort;
+    $mail->Port = 587;
 
     // Sender & recipient
-    $mail->setFrom($smtpUser, 'New Harvest Website');
-    $mail->addAddress($toEmail, 'NHFC Contact Desk');
+    $mail->setFrom('info@newharvestfellowshipchurch.tz', 'New Harvest Website');
+    $mail->addAddress('info@newharvestfellowshipchurch.tz', 'Pastor Jacob');
     $mail->addReplyTo($email, $name);
 
     // Content
     $mail->isHTML(true);
-    $mail->Subject = 'New message from contact form';
-    $mail->Body = "<strong>Name:</strong> {$name}<br>
-    <strong>Email:</strong> {$email}<br>
-    <strong>Phone:</strong> {$phone}<br><br>" . nl2br($message) . "<br><br>
-    <em>\"The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you.\" - Numbers 6:24-25</em>";
-    $mail->AltBody = "Name: {$name}\nEmail: {$email}\nPhone: {$phone}\n\n{$message}\n\n\"The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you.\" - Numbers 6:24-25";
+    $mail->Subject = $subject;
+    $mail->Body = "<strong>Name:</strong> {$name} <br>
+    <strong>Email:</strong> {$email} <br>
+    <strong>Phone:</strong> {$phone} <br><br>" . nl2br($message) . "<br><br>
+    <em>\"The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you.\" - Numbers 6:24-25 </em>";
+               
+    $mail->AltBody = "Name: {$name}\nEmail: {$email}\n\n{$message}\n\n\"The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you.\" - Numbers 6:24-25";
 
     $mail->send();
-    header('Location: contact.php?mail=success');
-    exit();
+    echo "Message sent successfully! ✉️🙏";
 } catch (Exception $e) {
-    header('Location: contact.php?mail=failed');
-    exit();
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-
+// Auto-refresh after 2 seconds
+header("Refresh: 2; url=/https://newharvestfellowshipchurch.tz/");
