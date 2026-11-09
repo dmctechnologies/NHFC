@@ -139,7 +139,7 @@ if ($home_ad_button_url !== '' && $home_ad_button_text === '') {
  
   <!-- Start Content -->
   <div class="main home-main" role="main">
-    <div id="content" class="content full">
+    <div id="content" class="content full" tabindex="-1">
       <div class="container">
         <div class="row"> 
           <!-- Start Featured Blocks -->
