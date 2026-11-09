@@ -1,18 +1,18 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="row"> 
+      <div class="row footer-grid">
         <!-- Start Footer Widgets -->
-        <div class="col-md-4 col-sm-4 widget footer-widget">
+        <div class="col-lg-3 col-md-6 col-sm-6 widget footer-widget">
           <h4 class="footer-widget-title">About NHFC Tanzania</h4>
-          <img src="images/nhfc.png" alt="Logo" style="width: 150px; height: auto;">
-          <p style="text-align: justify;">New Harvest Fellowship Church Tanzania is a vibrant 
+          <img class="footer-logo" src="images/nhfc.png" alt="New Harvest Fellowship Church Tanzania">
+          <p>New Harvest Fellowship Church Tanzania is a vibrant
             community of believers dedicated to spreading the message of hope and love.
             We are committed to making a positive impact in our local and global 
             communities through various outreach programs and initiatives.</p>	  
 				
 		</div>
-        <div class="col-md-4 col-sm-4 widget footer-widget">
+        <div class="col-lg-3 col-md-6 col-sm-6 widget footer-widget">
           <h4 class="footer-widget-title">Quick Links</h4>
           <ul>
             <li><a href="index.php">Home</a></li>
@@ -23,23 +23,26 @@
           </ul>
         </div>
 		
-        <div class="col-md-4 col-sm-4 widget footer-widget">
+        <div class="col-lg-3 col-md-6 col-sm-6 widget footer-widget">
           <h4 class="footer-widget-title">Contact Information</h4>
-        <p style="margin: 0;">NEW HARVEST FELLOWSHIP CHURCH TANZANIA</p>
-        <p style="margin: 0;">P.O.BOX 540, CHIBE-SHINYANGA</p>
-        <p style="margin: 0;">Mobile Number: 0676444127</p>
-        <p style="margin: 0;">Email: <a href="mailto:info@newharvestfellowshipchurch.tz">info@newharvestfellowshipchurch.tz</a></p>
+          <p>New Harvest Fellowship Church Tanzania<br>P.O. Box 540, Chibe-Shinyanga</p>
+          <p>Phone: <a href="tel:+255676444127">+255 676 444 127</a></p>
+          <p>Email: <a href="mailto:info@newharvestfellowshipchurch.tz">info@newharvestfellowshipchurch.tz</a></p>
 		
       </div>
-      <div class="col-md-4 col-sm-4 widget footer-widget">
+      <div class="col-lg-3 col-md-6 col-sm-6 widget footer-widget">
         <h4 class="footer-widget-title">Newsletter Subscription</h4>
-        <form action="#" method="post">
+        <form action="subscribe.php" method="post">
           <div class="form-group">
-            <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+            <label class="sr-only" for="newsletter-name">Your name</label>
+            <input id="newsletter-name" type="text" name="name" class="form-control" placeholder="Enter your name" autocomplete="name" required>
             <div class="spacer-10"></div>
-            <input type="text" name="country" class="form-control" placeholder="Enter your country" required>
+            <label class="sr-only" for="newsletter-country">Your country</label>
+            <input id="newsletter-country" type="text" name="country" class="form-control" placeholder="Enter your country" autocomplete="country-name" required>
             <div class="spacer-10"></div>
-            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>   </div>
+            <label class="sr-only" for="newsletter-email">Your email</label>
+            <input id="newsletter-email" type="email" name="email" class="form-control" placeholder="Enter your email" autocomplete="email" required>
+          </div>
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
       </div>
@@ -49,10 +52,13 @@
     <div class="container">
       <div class="row">
         <div class="copyrights-col-left col-md-6 col-sm-6">
-          <p>&copy; 2025 NHFC Tanzania. All Rights Reserved</p>
+          <p>&copy; <?php echo date('Y'); ?> NHFC Tanzania. All Rights Reserved</p>
         </div>
         <div class="copyrights-col-right col-md-6 col-sm-6">
-          <div class="social-icons"> <a href="https://www.facebook.com/newharvestfellowshipchurchchibe?mibextid=ZbWKwL<?php echo $row['facebook']; ?>" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com/<?php echo $row['twitter']; ?>" target="_blank"><i class="fa fa-twitter"></i></a> <a href="https://instagram.com/<?php echo $row['status']; ?>" target="_blank"><i class="fa fa-instagram"></i></a></div>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/newharvestfellowshipchurchchibe" target="_blank" rel="noopener noreferrer" aria-label="Visit NHFC on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/channel/UCIFm_llUrwwrdsYW_QzHlxA" target="_blank" rel="noopener noreferrer" aria-label="Visit NHFC on YouTube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
     </div>

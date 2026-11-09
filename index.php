@@ -95,9 +95,7 @@ if ($home_ad_button_url !== '' && $home_ad_button_text === '') {
   <div class="home-ad-modal<?php echo $has_ad_image ? '' : ' home-ad-modal--single'; ?>" role="dialog" aria-modal="true" aria-labelledby="home-ad-title">
     <button type="button" class="home-ad-close" aria-label="Close ad">&times;</button>
     <div class="home-ad-content">
-      <?php if ($home_ad_title !== ''): ?>
-      <h3 id="home-ad-title"><?php echo htmlspecialchars($home_ad_title, ENT_QUOTES, 'UTF-8'); ?></h3>
-      <?php endif; ?>
+      <h3 id="home-ad-title"><?php echo htmlspecialchars($home_ad_title !== '' ? $home_ad_title : 'A message from NHFC', ENT_QUOTES, 'UTF-8'); ?></h3>
       <?php if ($home_ad_body !== ''): ?>
       <p><?php echo nl2br(htmlspecialchars($home_ad_body, ENT_QUOTES, 'UTF-8')); ?></p>
       <?php endif; ?>
@@ -113,19 +111,34 @@ if ($home_ad_button_url !== '' && $home_ad_button_text === '') {
   </div>
 </div>
 <?php endif; ?>
-  <!-- Start Hero Slider -->
-  <div class="hero-slider flexslider clearfix" data-autoplay="yes" data-pagination="yes" data-arrows="yes" data-style="fade" data-pause="yes">
-    <ul class="slides">
-      <li class="parallax" style="background-image:url(images/slide1.jpg);"></li>
-      <li class="parallax" style="background-image:url(images/slide2.jpg);"></li>
-      <li class="parallax" style="background-image:url(images/slide3.jpg);"></li>
-      <li class="parallax" style="background-image:url(images/slide4.jpg);"></li>
-    </ul>
+  <section class="home-hero" aria-labelledby="home-hero-title">
+    <div class="container home-hero-content">
+      <p class="home-hero-eyebrow">A church family in Chibe, Tanzania</p>
+      <h1 id="home-hero-title">Growing in faith.<br>Serving with love.</h1>
+      <p class="home-hero-intro">Welcome to New Harvest Fellowship Church. Come worship, grow in God's Word, and serve our community with us.</p>
+      <div class="home-hero-actions">
+        <a class="btn home-hero-button" href="about.php">Get to know us</a>
+        <a class="home-hero-link" href="contact.php">Plan a visit <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <?php
+  $subscription_status = isset($_GET['subscribe']) && is_string($_GET['subscribe']) ? $_GET['subscribe'] : '';
+  $subscription_messages = array(
+    'success' => 'Thank you for subscribing. We look forward to sharing church updates with you.',
+    'invalid' => 'Please check your name, country, and email address, then try again.',
+    'failed' => 'We could not complete your subscription right now. Please try again later.'
+  );
+  ?>
+  <?php if (isset($subscription_messages[$subscription_status])): ?>
+  <div class="container">
+    <p class="subscription-message" role="status"><?php echo htmlspecialchars($subscription_messages[$subscription_status], ENT_QUOTES, 'UTF-8'); ?></p>
   </div>
-  <!-- End Hero Slider --> 
+  <?php endif; ?>
  
   <!-- Start Content -->
-  <div class="main" role="main">
+  <div class="main home-main" role="main">
     <div id="content" class="content full">
       <div class="container">
         <div class="row"> 

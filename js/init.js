@@ -47,15 +47,33 @@ var NATIVE = window.NATIVE || {};
 	NATIVE.navMenu = function() {
 		// Responsive Menu Events
 		$(".menu-toggle").click(function(){
+			var isOpen = $(this).hasClass("opened");
 			$(this).toggleClass("opened");
-			$(".main-menu-wrapper").slideToggle(500);
+			$(this)
+				.attr("aria-expanded", isOpen ? "false" : "true")
+				.attr("aria-label", isOpen ? "Open navigation" : "Close navigation");
+			$(".main-menu-wrapper").stop(true, true).slideToggle(250);
 			return false;
 		});
 		$(window).resize(function(){
-			if($(".menu-toggle").hasClass("opened")){
-				$(".main-menu-wrapper").css("display","block");
-			} else {
-				$(".menu-toggle").css("display","none");
+			if ($(window).width() > 991) {
+				$(".main-menu-wrapper").css("display", "block");
+				$(".menu-toggle").removeClass("opened")
+					.attr("aria-expanded", "false")
+					.attr("aria-label", "Open navigation");
+			} else if (!$(".menu-toggle").hasClass("opened")) {
+				$(".main-menu-wrapper").css("display", "none");
+			}
+		});
+		$(".submenu-toggle").click(function(){
+			var isOpen = $(this).attr("aria-expanded") === "true";
+			$(this).attr("aria-expanded", isOpen ? "false" : "true");
+			$(this).closest("li").toggleClass("submenu-open", !isOpen);
+		});
+		$(window).resize(function(){
+			if ($(window).width() > 991) {
+				$(".submenu-toggle").attr("aria-expanded", "false");
+				$(".navigation > ul > li").removeClass("submenu-open");
 			}
 		});
 	}
