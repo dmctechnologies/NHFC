@@ -46,7 +46,7 @@ include "connect.php";
             <ul class="top-navigation">
               <li><a class="give-button" href="donate.php">Give</a></li>
             </ul>
-            <button type="button" class="visible-sm visible-xs menu-toggle" aria-label="Open navigation" aria-expanded="false">
+            <button type="button" class="visible-sm visible-xs menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
               <i class="fa fa-bars" aria-hidden="true"></i>
               <span class="sr-only">Menu</span>
             </button>
@@ -54,7 +54,7 @@ include "connect.php";
         </div>
       </div>
     </div>
-    <div class="main-menu-wrapper">
+    <div id="site-navigation" class="main-menu-wrapper">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -63,19 +63,19 @@ include "connect.php";
                 <li><a href="index.php">Home</a></li>
                 <li class="has-submenu">
                   <a href="about.php">About Us</a>
-                  <button type="button" class="submenu-toggle" aria-label="Toggle About Us links" aria-expanded="false">
+                  <button type="button" class="submenu-toggle" aria-label="Toggle About Us links" aria-expanded="false" aria-controls="about-links">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </button>
-                  <ul class="dropdown">
+                  <ul id="about-links" class="dropdown">
                     <li><a href="our-excos.php">Leadership Team</a></li>
                   </ul>
                 </li>
                 <li class="has-submenu">
                   <a href="about.php">Ministries</a>
-                  <button type="button" class="submenu-toggle" aria-label="Toggle ministry links" aria-expanded="false">
+                  <button type="button" class="submenu-toggle" aria-label="Toggle ministry links" aria-expanded="false" aria-controls="ministry-links">
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </button>
-                  <ul class="dropdown">
+                  <ul id="ministry-links" class="dropdown">
                     <li><a href="youth.php">Youth Ministry</a></li>
                     <li><a href="women.php">Women Ministry</a></li>
                     <li><a href="children.php">Children Ministry</a></li>
